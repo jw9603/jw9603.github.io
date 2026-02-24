@@ -879,6 +879,10 @@ a:hover {
     font-size: 0.85rem;
 }
 
+.visitor-count {
+    margin-top: 0.5rem;
+}
+
 /* ===== Scroll Reveal Animation ===== */
 .reveal {
     opacity: 0;
