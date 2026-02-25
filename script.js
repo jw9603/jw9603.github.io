@@ -1,4 +1,12 @@
-// ===== Typing Animation =====
+// ===== Constants =====
+const TYPING_DELETE_DELAY = 50;
+const TYPING_ADD_DELAY = 100;
+const TYPING_PAUSE_DELAY = 2000;
+const TYPING_NEXT_DELAY = 500;
+const PARTICLE_COUNT = 80;
+const COUNTER_STEPS = 40;
+const COUNTER_INTERVAL = 50;
+
 const typingTexts = [
     'AI Solutions',
     'MCP Servers',
@@ -6,12 +14,15 @@ const typingTexts = [
     'FastAPI Services'
 ];
 
+// ===== Typing Animation =====
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
-const typingElement = document.getElementById('typingText');
 
 function type() {
+    const typingElement = document.getElementById('typingText');
+    if (!typingElement) return;
+
     const currentText = typingTexts[textIndex];
 
     if (isDeleting) {
@@ -22,15 +33,15 @@ function type() {
         charIndex++;
     }
 
-    let delay = isDeleting ? 50 : 100;
+    let delay = isDeleting ? TYPING_DELETE_DELAY : TYPING_ADD_DELAY;
 
     if (!isDeleting && charIndex === currentText.length) {
-        delay = 2000;
+        delay = TYPING_PAUSE_DELAY;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         textIndex = (textIndex + 1) % typingTexts.length;
-        delay = 500;
+        delay = TYPING_NEXT_DELAY;
     }
 
     setTimeout(type, delay);
@@ -39,9 +50,9 @@ function type() {
 // ===== Particles =====
 function createParticles() {
     const container = document.getElementById('particles');
-    const count = 80;
+    if (!container) return;
 
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
         particle.style.left = Math.random() * 100 + '%';
@@ -55,25 +66,22 @@ function createParticles() {
 // ===== Navigation Scroll Effect =====
 function handleNavScroll() {
     const nav = document.getElementById('nav');
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
+    if (!nav) return;
+    nav.classList.toggle('scrolled', window.scrollY > 50);
 }
 
 // ===== Mobile Nav Toggle =====
 function setupMobileNav() {
     const toggle = document.getElementById('navToggle');
     const links = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
 
     toggle.addEventListener('click', () => {
         links.classList.toggle('active');
         toggle.classList.toggle('active');
     });
 
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    links.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             links.classList.remove('active');
             toggle.classList.remove('active');
@@ -81,66 +89,54 @@ function setupMobileNav() {
     });
 }
 
-// ===== Scroll Reveal =====
-function setupScrollReveal() {
+// ===== Unified Scroll Observer =====
+function setupScrollObservers() {
+    // Scroll reveal
     const revealElements = document.querySelectorAll(
         '.skill-card, .project-card, .timeline-item, .about-grid, .contact-content, .pub-card'
     );
-
     revealElements.forEach(el => el.classList.add('reveal'));
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    revealElements.forEach(el => observer.observe(el));
-}
+    revealElements.forEach(el => revealObserver.observe(el));
 
-// ===== Skill Bar Animation =====
-function setupSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-fill');
+    // Skill bars + counters (shared observer)
+    const animateElements = [
+        ...document.querySelectorAll('.skill-fill'),
+        ...document.querySelectorAll('.stat-number')
+    ];
 
-    const observer = new IntersectionObserver((entries) => {
+    const animateObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (!entry.isIntersecting) return;
+
+            if (entry.target.classList.contains('skill-fill')) {
                 const width = entry.target.getAttribute('data-width');
                 entry.target.style.width = width + '%';
+            } else if (entry.target.classList.contains('stat-number')) {
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                if (target) animateCounter(entry.target, target);
             }
+
+            animateObserver.unobserve(entry.target);
         });
     }, { threshold: 0.5 });
 
-    skillBars.forEach(bar => observer.observe(bar));
+    animateElements.forEach(el => animateObserver.observe(el));
 }
 
 // ===== Counter Animation =====
-function setupCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = parseInt(entry.target.getAttribute('data-target'));
-                if (target) {
-                    animateCounter(entry.target, target);
-                }
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach(counter => observer.observe(counter));
-}
-
 function animateCounter(element, target) {
     let current = 0;
-    const increment = target / 40;
+    const increment = Math.max(target / COUNTER_STEPS, 1);
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
@@ -149,12 +145,12 @@ function animateCounter(element, target) {
         } else {
             element.textContent = Math.ceil(current);
         }
-    }, 50);
+    }, COUNTER_INTERVAL);
 }
 
 // ===== Smooth Scroll for Nav Links =====
 function setupSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('.nav-links a[href^="#"], .hero-cta a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
@@ -168,10 +164,13 @@ function setupSmoothScroll() {
 // ===== Theme Toggle =====
 function setupThemeToggle() {
     const toggle = document.getElementById('themeToggle');
-    const saved = localStorage.getItem('theme');
+    if (!toggle) return;
 
+    const saved = localStorage.getItem('theme');
     if (saved) {
         document.documentElement.setAttribute('data-theme', saved);
+    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
     }
 
     toggle.addEventListener('click', () => {
@@ -188,10 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     type();
     setupMobileNav();
-    setupScrollReveal();
-    setupSkillBars();
-    setupCounters();
+    setupScrollObservers();
     setupSmoothScroll();
-
     window.addEventListener('scroll', handleNavScroll);
 });
