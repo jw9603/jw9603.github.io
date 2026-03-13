@@ -403,6 +403,28 @@ a:hover {
     transform: translateY(-3px);
 }
 
+/* ===== Hero Profile Photo ===== */
+.hero-profile {
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 30px var(--accent-glow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.hero-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px var(--accent-glow);
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -598,14 +620,23 @@ a:hover {
 .code-func { color: #61afef; }
 .code-string { color: #98c379; }
 
-/* ===== Skills Section ===== */
-.skills-grid {
+/* ===== Research Interests Section ===== */
+.research-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 650px;
+    margin: -1.5rem auto 2.5rem;
+    line-height: 1.7;
+}
+
+.research-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
-.skill-card {
+.research-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -614,43 +645,28 @@ a:hover {
     box-shadow: var(--card-shadow);
 }
 
-.skill-card:hover {
+.research-card:hover {
     transform: translateY(-4px);
     border-color: var(--accent);
     box-shadow: var(--card-shadow-hover);
     background: var(--bg-card-hover);
 }
 
-.skill-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+.research-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
 }
 
-.skill-card h3 {
-    font-size: 1.2rem;
+.research-card h3 {
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
-.skill-card p {
+.research-card p {
     color: var(--text-secondary);
     font-size: 0.9rem;
-    margin-bottom: 1.25rem;
-}
-
-.skill-bar {
-    height: 4px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.skill-fill {
-    height: 100%;
-    width: 0;
-    background: var(--accent-gradient);
-    border-radius: 2px;
-    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1.6;
 }
 
 /* ===== Projects Section ===== */
@@ -993,7 +1009,7 @@ a:hover {
         grid-template-columns: 1fr;
     }
 
-    .skills-grid {
+    .research-grid {
         grid-template-columns: 1fr;
     }
 

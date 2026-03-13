@@ -15,10 +15,10 @@
             <a href="#hero" class="nav-logo">jiwon<span class="logo-dot">.ai</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#research">Research</a></li>
                 <li><a href="#publications">Publications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -40,6 +40,9 @@
             <div class="particles" id="particles"></div>
         </div>
         <div class="hero-content">
+            <div class="hero-profile">
+                <img src="profile.jpeg" alt="Jiwon Jeong" class="hero-avatar">
+            </div>
             <p class="hero-greeting">Hello, I'm</p>
             <h1 class="hero-name">Jiwon Jeong</h1>
             <div class="hero-title-wrapper">
@@ -51,7 +54,11 @@
                 Passionate about foundation model training, LLM reasoning, and advancing NLP research.
             </p>
             <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">Projects</a>
+                <a href="#publications" class="btn btn-primary">Publications</a>
+                <a href="cv.pdf" target="_blank" class="btn btn-outline">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    CV / Resume
+                </a>
                 <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
             <div class="hero-socials">
@@ -137,46 +144,70 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="section section-alt" id="skills">
+    <!-- Research Interests Section -->
+    <section class="section section-alt" id="research">
         <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">&#128013;</div>
-                    <h3>Python / PyTorch</h3>
-                    <p>End-to-end ML pipeline, model training, data preprocessing, and evaluation</p>
-                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            <h2 class="section-title">Research Interests</h2>
+            <p class="research-subtitle">My research focuses on understanding and improving large language models, with a goal of pursuing a Ph.D. in NLP/LLM.</p>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-icon">&#129504;</div>
+                    <h3>Reasoning LLM</h3>
+                    <p>Enhancing multi-step reasoning and problem-solving capabilities of LLMs through inference-time scaling, chain-of-thought, and self-consistency.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">&#129302;</div>
-                    <h3>NLP / LLM</h3>
-                    <p>Text classification, language modeling, fine-tuning, prompt engineering, text generation & evaluation</p>
-                    <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                <div class="research-card">
+                    <div class="research-icon">&#127981;</div>
+                    <h3>Foundation Models</h3>
+                    <p>Pre-training, post-training, and scaling laws for large language models. Understanding training dynamics and emergent capabilities.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">&#9889;</div>
-                    <h3>FastAPI / Docker</h3>
-                    <p>REST API development, containerized deployment, async backend systems</p>
-                    <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+                <div class="research-card">
+                    <div class="research-icon">&#128161;</div>
+                    <h3>Commonsense QA</h3>
+                    <p>Enabling models to answer questions requiring world knowledge and commonsense reasoning beyond surface-level pattern matching.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">&#128268;</div>
-                    <h3>MCP / LangChain</h3>
-                    <p>Model Context Protocol servers, LangChain-based chatbot &amp; RAG development</p>
-                    <div class="skill-bar"><div class="skill-fill" data-width="66"></div></div>
+                <div class="research-card">
+                    <div class="research-icon">&#128300;</div>
+                    <h3>Logical Fallacy Detection</h3>
+                    <p>Identifying and classifying logical fallacies in text using LLMs with counterargument and goal-aware prompt formulation.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">&#128065;</div>
-                    <h3>Computer Vision</h3>
-                    <p>YOLOv5 object detection, GIT multi-modal model, image-to-text generation</p>
-                    <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+                <div class="research-card">
+                    <div class="research-icon">&#128221;</div>
+                    <h3>Prompt Engineering</h3>
+                    <p>Designing effective prompts for LLMs to improve task performance, including few-shot, chain-of-thought, and structured prompting.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">&#128202;</div>
-                    <h3>ML Engineering</h3>
-                    <p>End-to-end ML pipeline design, model training & evaluation, classical ML to deep learning architectures</p>
-                    <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                <div class="research-card">
+                    <div class="research-icon">🕸️</div>
+                    <h3>Knowledge Graph</h3>
+                    <p>Integrating structured knowledge into language models for improved factual grounding and reasoning capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="section" id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="publications-list">
+                <div class="pub-card">
+                    <span class="pub-venue">NAACL 2025 Findings</span>
+                    <h3 class="pub-title">Large Language Models Are Better Logical Fallacy Reasoners with Counterargument, Explanation, and Goal-Aware Prompt Formulation</h3>
+                    <p class="pub-authors"><strong>Jiwon Jeong</strong>, Hyeju Jang, Hogun Park</p>
+                    <p class="pub-detail">The 2025 Annual Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics</p>
+                    <a href="https://arxiv.org/abs/2503.23363" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        arXiv
+                    </a>
+                </div>
+                <div class="pub-card">
+                    <span class="pub-venue">KSC 2022 &middot; Outstanding Paper Award</span>
+                    <h3 class="pub-title">Improving Commonsense-based QA Model through a Cycle-Encoder</h3>
+                    <p class="pub-authors"><strong>Jiwon Jeong</strong>, Soyoung Lee, Hogun Park</p>
+                    <p class="pub-detail">Proceedings of the Korea Software Congress, pp. 791-793, 2022. Top 10% of accepted papers.</p>
+                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224246" target="_blank" rel="noopener noreferrer" class="pub-link">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        DBpia
+                    </a>
                 </div>
             </div>
         </div>
@@ -229,7 +260,7 @@
                             </a>
                         </div>
                     </div>
-                    <span class="project-date">2025.08 ~ Present</span>
+                    <span class="project-date">2025.08 ~ 2026.01</span>
                     <h3 class="project-title">B-Peach LAB - Text Adaptation Service</h3>
                     <p class="project-desc">Designed evaluation metrics for an AI-powered text adaptation service improving information accessibility for slow learners. Reduced adaptation time from 1 day to under 1 minute.</p>
                     <div class="project-tags">
@@ -308,14 +339,6 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">2026.02.09 ~ 2026.02.24</span>
-                        <h3>Online Mentor @ LIKELION (AI NLP Engineer Intensive Course, 3rd Cohort)</h3>
-                        <p>Mentoring 4 teams on AI-based service development projects using corporate and public data. Providing code review, project coaching, and Q&A support via Discord. Guiding students with Python fundamentals through hands-on NLP project development.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
                         <span class="timeline-date">2025.09 ~ Present</span>
                         <h3>AI Research Engineer @ Lotte Innovate</h3>
                         <p>Language AI Engineer in AI Tech LAB, Lotte GPT Part. Responsible for language AI research and development at Lotte Innovate.</p>
@@ -324,7 +347,15 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">2025.08 ~ Present</span>
+                        <span class="timeline-date">2026.02.09 ~ 2026.02.24</span>
+                        <h3>Online Mentor @ LIKELION (AI NLP Engineer Intensive Course, 3rd Cohort)</h3>
+                        <p>Mentoring 4 teams on AI-based service development projects using corporate and public data. Providing code review, project coaching, and Q&A support via Discord. Guiding students with Python fundamentals through hands-on NLP project development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025.08 ~ 2026.01</span>
                         <h3>AI Researcher @ B-Peach LAB (Tech for Impact)</h3>
                         <p>Designing evaluation metrics for a text adaptation service aimed at improving information accessibility for slow learners. Conducting ongoing research on adaptation quality assessment.</p>
                     </div>
@@ -373,37 +404,8 @@
         </div>
     </section>
 
-    <!-- Publications Section -->
-    <section class="section" id="publications">
-        <div class="container">
-            <h2 class="section-title">Publications</h2>
-            <div class="publications-list">
-                <div class="pub-card">
-                    <span class="pub-venue">NAACL 2025 Findings</span>
-                    <h3 class="pub-title">Large Language Models Are Better Logical Fallacy Reasoners with Counterargument, Explanation, and Goal-Aware Prompt Formulation</h3>
-                    <p class="pub-authors"><strong>Jiwon Jeong</strong>, Hyeju Jang, Hogun Park</p>
-                    <p class="pub-detail">The 2025 Annual Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics</p>
-                    <a href="https://arxiv.org/abs/2503.23363" target="_blank" rel="noopener noreferrer" class="pub-link">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        arXiv
-                    </a>
-                </div>
-                <div class="pub-card">
-                    <span class="pub-venue">KSC 2022 &middot; Outstanding Paper Award</span>
-                    <h3 class="pub-title">Improving Commonsense-based QA Model through a Cycle-Encoder</h3>
-                    <p class="pub-authors"><strong>Jiwon Jeong</strong>, Soyoung Lee, Hogun Park</p>
-                    <p class="pub-detail">Proceedings of the Korea Software Congress, pp. 791-793, 2022. Top 10% of accepted papers.</p>
-                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224246" target="_blank" rel="noopener noreferrer" class="pub-link">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        DBpia
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
-    <section class="section section-alt" id="contact">
+    <section class="section" id="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">

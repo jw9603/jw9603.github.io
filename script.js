@@ -8,10 +8,10 @@ const COUNTER_STEPS = 40;
 const COUNTER_INTERVAL = 50;
 
 const typingTexts = [
+    'NLP Research',
+    'LLM Reasoning',
     'AI Solutions',
-    'MCP Servers',
-    'LLM Applications',
-    'FastAPI Services'
+    'Foundation Models'
 ];
 
 // ===== Typing Animation =====
@@ -93,7 +93,7 @@ function setupMobileNav() {
 function setupScrollObservers() {
     // Scroll reveal
     const revealElements = document.querySelectorAll(
-        '.skill-card, .project-card, .timeline-item, .about-grid, .contact-content, .pub-card'
+        '.research-card, .project-card, .timeline-item, .about-grid, .contact-content, .pub-card'
     );
     revealElements.forEach(el => el.classList.add('reveal'));
 
@@ -108,29 +108,21 @@ function setupScrollObservers() {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // Skill bars + counters (shared observer)
-    const animateElements = [
-        ...document.querySelectorAll('.skill-fill'),
-        ...document.querySelectorAll('.stat-number')
-    ];
+    // Counter animation observer
+    const counterElements = document.querySelectorAll('.stat-number');
 
     const animateObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
 
-            if (entry.target.classList.contains('skill-fill')) {
-                const width = entry.target.getAttribute('data-width');
-                entry.target.style.width = width + '%';
-            } else if (entry.target.classList.contains('stat-number')) {
-                const target = parseInt(entry.target.getAttribute('data-target'));
-                if (target) animateCounter(entry.target, target);
-            }
+            const target = parseInt(entry.target.getAttribute('data-target'));
+            if (target) animateCounter(entry.target, target);
 
             animateObserver.unobserve(entry.target);
         });
     }, { threshold: 0.5 });
 
-    animateElements.forEach(el => animateObserver.observe(el));
+    counterElements.forEach(el => animateObserver.observe(el));
 }
 
 // ===== Counter Animation =====
