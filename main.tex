@@ -1,0 +1,261 @@
+%-------------------------
+% Resume in LaTeX (Jake's Resume style)
+% Author: Jiwon Jeong
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+\usepackage{lmodern}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Jiwon Jeong} \\ \vspace{1pt}
+    \small AI Research Engineer \\ \vspace{3pt}
+    \small \faEnvelope\ \href{mailto:jwjw9603@gmail.com}{\underline{jwjw9603@gmail.com}} $|$
+    \faGithub\ \href{https://github.com/jw9603}{\underline{github.com/jw9603}} $|$
+    \faLinkedin\ \href{https://www.linkedin.com/in/jiwon-jeong-75951235b}{\underline{LinkedIn}} $|$
+    \faIcon{robot}\ \href{https://huggingface.co/jiwon9703}{\underline{Hugging Face}} $|$
+    \faGlobe\ \href{https://jw9603.github.io}{\underline{jw9603.github.io}}
+\end{center}
+
+%-----------RESEARCH INTERESTS-----------
+\section{Research Interests}
+  Reasoning in Large Language Models, Language-Mixed Chain-of-Thought, Bilingual Reasoning, Korean LLMs, Post-Training, LLM Evaluation
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Sungkyunkwan University (SKKU)}{Suwon, South Korea}
+      {M.S. in Artificial Intelligence}{Mar. 2022 -- Aug. 2024}
+      \resumeItemListStart
+        \resumeItem{Advisor: Prof. Hogun Park}
+        \resumeItem{Research: Commonsense QA, Logical Fallacy Detection}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Kookmin University}{Seoul, South Korea}
+      {B.S. in Electronic Engineering}{Mar. 2016 -- Feb. 2022}
+
+  \resumeSubHeadingListEnd
+
+%-----------PROFESSIONAL EXPERIENCE-----------
+\section{Professional Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {AI Research Engineer}{Sep. 2025 -- Present}
+      {Lotte Innovate -- AI Tech LAB, Language AI Team}{Seoul, South Korea}
+      \resumeItemListStart
+        \resumeItem{AI Research Engineer responsible for LLM research and enterprise deployment}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------TEACHING & MENTORING-----------
+\section{Teaching \& Mentoring}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Online Mentor}{Feb. 2026}
+      {LIKELION -- AI NLP Engineer Intensive Course, 3rd Cohort}{Remote}
+      \resumeItemListStart
+        \resumeItem{Mentored 4 teams on AI-based service development projects using corporate and public data}
+        \resumeItem{Provided code review, project coaching, and Q\&A support via Discord}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Teaching Assistant}{2023 -- 2024}
+      {Sungkyunkwan University}{Suwon, South Korea}
+      \resumeItemListStart
+        \resumeItem{TA for Language Model course (SWE3032-41) and Deep Learning advanced courses for non-CS educators}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------ACTIVITIES-----------
+\section{Activities}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Runner -- ``Deep Dive into LLM''}{Mar. 2026 -- Present}
+      {Pseudo-Lab (\href{https://pseudo-lab.com/projects/ac9d57ad-630c-4d86-b8fe-615c0b5ed7c6}{\underline{link}}) -- Non-profit AI research community}{Remote}
+      \resumeItemListStart
+        \resumeItem{Studying Stanford CS336: Language Modeling from Scratch (2026) through weekly online discussions}
+        \resumeItem{Research project to be selected and pursued after course completion}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {AI Researcher}{Aug. 2025 -- Jan. 2026}
+      {B-Peach LAB (Tech for Impact)}{Remote}
+      \resumeItemListStart
+        \resumeItem{Designed evaluation metrics for AI-powered text adaptation service improving information accessibility for slow learners}
+        \resumeItem{Conducted research on adaptation quality assessment}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{NAACL 2025 Findings}}{2025}
+      \resumeItemListStart
+        \resumeItem{Large Language Models Are Better Logical Fallacy Reasoners with Counterargument, Explanation, and Goal-Aware Prompt Formulation}
+        \resumeItem{\textbf{Jiwon Jeong}, Hyeju Jang, Hogun Park}
+        \resumeItem{\href{https://arxiv.org/abs/2503.23363}{\underline{arXiv}}}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{KSC 2022} $|$ \emph{Outstanding Paper Award (Top 10\%)}}{2022}
+      \resumeItemListStart
+        \resumeItem{Improving Commonsense-based QA Model through a Cycle-Encoder}
+        \resumeItem{\textbf{Jiwon Jeong}, Soyoung Lee, Hogun Park}
+        \resumeItem{\href{https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224246}{\underline{DBpia}}}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Open Source Contribution: Hugging Face Transformers} $|$ \emph{Python, Transformers}}{Mar. 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Fixed a bug in continuous batching for multimodal models. Added input preprocessing and fallback mechanism for non-text-only models (\href{https://github.com/huggingface/transformers/pull/44436}{\underline{PR \#44436}}, merged)}
+        \resumeItem{Reported and fixed a protobuf decode error masking bug in tokenizer loading (\href{https://github.com/huggingface/transformers/pull/45486}{\underline{PR \#45486}})}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{MCP Server for ChatGPT Apps} $|$ \emph{Python, FastAPI, MCP}}{Jan. 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Built MCP (Model Context Protocol) servers for ChatGPT Apps (OpenAI)}
+        \resumeItem{Designed middleware architecture connecting frontend, backend, and LLM-powered enterprise solutions}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{B-Peach LAB -- Text Adaptation Service} $|$ \emph{NLP, Evaluation}}{Aug. 2025 -- Jan. 2026}
+      \resumeItemListStart
+        \resumeItem{Designed evaluation metrics for AI-powered text adaptation service for slow learners}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Korean LLM Benchmark} $|$ \emph{Python, LLM, Evaluation}}{Dec. 2025 -- Jan. 2026}
+      \resumeItemListStart
+        \resumeItem{Evaluation framework for Korean LLM performance with standardized metrics and reproducible pipelines}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------AWARDS-----------
+\section{Awards}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{KSC 2022 Outstanding Paper Award} $|$ \emph{Top 10\% of accepted papers}}{2022}
+    \resumeProjectHeading
+      {\textbf{Text Ethics Hackathon -- 2nd Place}}{Nov. 2021 -- Dec. 2021}
+      \resumeItemListStart
+        \resumeItem{Developed ELECTRA-based classification model for detecting hate speech and biased text}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python} \\
+     \textbf{Frameworks}{: PyTorch, Hugging Face Transformers, FastAPI, LangChain, Docker} \\
+     \textbf{Research}{: NLP, LLM Fine-tuning, Prompt Engineering, Model Evaluation, MCP} \\
+     \textbf{Tools}{: Git, Linux, Weights \& Biases, Jupyter}
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
