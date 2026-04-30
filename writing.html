@@ -35,17 +35,24 @@ permalink: /writing/
       {% if site.posts.size == 0 %}
         <p>No posts yet.</p>
       {% else %}
-        <ul style="list-style: none; padding: 0;">
-          {% for post in site.posts %}
-            <li style="margin-bottom: 24px;">
-              <a href="{{ post.url }}" style="font-size: 1.7rem;">{{ post.title }}</a>
-              <p style="color: #888; font-size: 1.3rem; margin: 4px 0 0;">
-                {{ post.date | date: "%b %-d, %Y" }}
-                {% if post.description %} &middot; {{ post.description }}{% endif %}
-              </p>
-            </li>
-          {% endfor %}
-        </ul>
+        {% assign categories = "Open Source,Reading Notes,Research,Notes" | split: "," %}
+        {% for cat in categories %}
+          {% assign posts_in_cat = site.posts | where: "category", cat %}
+          {% if posts_in_cat.size > 0 %}
+            <h3 style="margin-top: 36px; font-size: 1.9rem; font-weight: 600; color: #222;">{{ cat }}</h3>
+            <ul style="list-style: none; padding: 0;">
+              {% for post in posts_in_cat %}
+                <li style="margin-bottom: 18px;">
+                  <a href="{{ post.url }}" style="font-size: 1.6rem;">{{ post.title }}</a>
+                  <p style="color: #888; font-size: 1.3rem; margin: 4px 0 0;">
+                    {{ post.date | date: "%b %-d, %Y" }}
+                    {% if post.description %} &middot; {{ post.description }}{% endif %}
+                  </p>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endfor %}
       {% endif %}
     </section>
 
