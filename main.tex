@@ -209,6 +209,7 @@
     \resumeProjectHeading
       {\textbf{Open Source Contribution: Hugging Face Transformers} $|$ \emph{Python, Transformers}}{Mar. 2026 -- Present}
       \resumeItemListStart
+        \resumeItem{Removed six dead dummy classes (BeamScorer, ConstrainedBeamSearchScorer, Constraint, ConstraintListState, DisjunctiveConstraint, PhrasalConstraint) left over after v5 cleanup; fixed \texttt{check\_repo.py} failure on PyTorch-less installs (\href{https://github.com/huggingface/transformers/pull/45722}{\underline{PR \#45722}}, merged Apr. 2026)}
         \resumeItem{Reported and fixed a protobuf decode error masking bug in tokenizer loading (\href{https://github.com/huggingface/transformers/pull/45486}{\underline{PR \#45486}}, merged Apr. 2026)}
         \resumeItem{Fixed a bug in continuous batching for multimodal models. Added input preprocessing and fallback mechanism for non-text-only models (\href{https://github.com/huggingface/transformers/pull/44436}{\underline{PR \#44436}}, merged Mar. 2026)}
       \resumeItemListEnd

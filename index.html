@@ -75,6 +75,11 @@
 
       <div class="news-item">
         <b class="news-date">Apr 2026</b>
+        Removed dead beam-search dummies from <code>dummy_pt_objects.py</code> in <a href="https://github.com/huggingface/transformers/pull/45722" target="_blank">transformers PR #45722</a> (merged).
+      </div>
+
+      <div class="news-item">
+        <b class="news-date">Apr 2026</b>
         Reported and fixed a protobuf decode error masking bug in <a href="https://github.com/huggingface/transformers/pull/45486" target="_blank">transformers PR #45486</a> (merged).
       </div>
 
@@ -214,9 +219,10 @@
       <div class="paper">
         <p class="title">
           <b>Hugging Face Transformers — Open Source Contribution</b>
-          <b style="float:right;">Mar 2026</b>
+          <b style="float:right;">Mar 2026 – Present</b>
         </p>
         <p>
+          <a href="https://github.com/huggingface/transformers/pull/45722" target="_blank">[PR #45722]</a> (merged Apr 2026) — Removed six dead dummy classes (BeamScorer, ConstrainedBeamSearchScorer, Constraint, ConstraintListState, DisjunctiveConstraint, PhrasalConstraint) left over after v5 cleanup. Fixed <code>check_repo.py</code> failure on PyTorch-less installs.<br>
           <a href="https://github.com/huggingface/transformers/pull/45486" target="_blank">[PR #45486]</a> (merged Apr 2026) — Reported and fixed a protobuf decode error masking bug in tokenizer loading.<br>
           <a href="https://github.com/huggingface/transformers/pull/44436" target="_blank">[PR #44436]</a> (merged Mar 2026) — Fixed a bug in continuous batching for multimodal models. Added input preprocessing and a fallback mechanism for non-text-only models.
         </p>
