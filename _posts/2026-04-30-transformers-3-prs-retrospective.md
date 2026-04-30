@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "huggingface/transformers contributor가 되어 본 3편의 PR 회고 — #44436, #45486, #45722"
+title: "transformers contributor가 되어 본 3편의 PR 회고"
 date: 2026-04-30
 description: "Reflections on three merged PRs (#44436, #45486, #45722) over two months of contributing to transformers."
 ---

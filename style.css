@@ -71,9 +71,34 @@ a:hover {
   vertical-align: middle;
 }
 
+/* ===== Site Navigation ===== */
+.site-nav {
+  margin-top: 18px;
+  padding: 12px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.site-nav a {
+  color: #444;
+  margin: 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.site-nav a:hover {
+  color: #fa8072;
+  text-decoration: none;
+}
+
 /* ===== Sections ===== */
 .docs-section {
   padding: 20px 0 10px 0;
+  scroll-margin-top: 12px;
 }
 
 .docs-section h5 {
