@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Writing | Jiwon Jeong</title>
+  <meta name="description" content="Writing by Jiwon Jeong">
+  <meta name="author" content="Jiwon Jeong">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Writing | Jiwon Jeong">
+  <meta property="og:url" content="https://jw9603.github.io/writing/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="post-nav" style="padding-top: 40px;">
+      <a href="/">&larr; Home</a>
+    </div>
+
+    <section style="padding-top: 30px;">
+      <h2>Writing</h2>
+
+      {% if site.posts.size == 0 %}
+        <p>No posts yet.</p>
+      {% else %}
+        <ul style="list-style: none; padding: 0;">
+          {% for post in site.posts %}
+            <li style="margin-bottom: 24px;">
+              <a href="{{ post.url }}" style="font-size: 1.7rem;">{{ post.title }}</a>
+              <p style="color: #888; font-size: 1.3rem; margin: 4px 0 0;">
+                {{ post.date | date: "%b %-d, %Y" }}
+                {% if post.description %} &middot; {{ post.description }}{% endif %}
+              </p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </section>
+
+    <footer class="site-footer" style="margin-top: 60px;">
+      <p>&copy; {{ "now" | date: "%Y" }} Jiwon Jeong</p>
+    </footer>
+
+  </div>
+
+  <script data-goatcounter="https://jw9603.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

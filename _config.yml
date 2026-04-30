@@ -1,0 +1,20 @@
+title: Jiwon Jeong
+description: AI Research Engineer
+
+markdown: kramdown
+highlighter: rouge
+
+permalink: /blog/:title/
+
+# Don't use the default Jekyll theme; we have our own CSS
+theme: null
+
+# Don't process these files/dirs as Jekyll content
+exclude:
+  - main.tex
+  - cv.pdf
+  - "*.bak"
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
