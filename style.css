@@ -73,26 +73,54 @@ a:hover {
 
 /* ===== Site Navigation ===== */
 .site-nav {
-  margin-top: 18px;
-  padding: 12px 0;
-  border-top: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
   border-bottom: 1px solid #eee;
-  text-align: center;
+  padding: 14px 0;
   font-size: 1.4rem;
 }
 
-.site-nav a {
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
   color: #444;
-  margin: 0 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
   font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -.01rem;
   transition: color 0.15s ease;
 }
 
-.site-nav a:hover {
+.nav-brand:hover {
   color: #fa8072;
   text-decoration: none;
+}
+
+.nav-links a {
+  color: #444;
+  margin-left: 22px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.nav-links a:hover {
+  color: #fa8072;
+  text-decoration: none;
+}
+
+@media (max-width: 550px) {
+  .nav-inner {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .nav-links a {
+    margin: 0 10px;
+  }
 }
 
 /* ===== Sections ===== */
