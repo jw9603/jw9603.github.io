@@ -12,7 +12,6 @@ theme: null
 # Don't process these files/dirs as Jekyll content
 exclude:
   - main.tex
-  - cv.pdf
   - "*.bak"
   - README.md
   - Gemfile
