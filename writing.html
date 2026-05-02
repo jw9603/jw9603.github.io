@@ -1,68 +1,65 @@
 ---
+layout: default
+title: Writing
+description: Posts, lecture notes, and technical writing by Jiwon Jeong.
 permalink: /writing/
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Writing | Jiwon Jeong</title>
-  <meta name="description" content="Writing by Jiwon Jeong">
-  <meta name="author" content="Jiwon Jeong">
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Writing | Jiwon Jeong">
-  <meta property="og:url" content="https://jw9603.github.io/writing/">
+{% include site-header.html %}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container container-narrow">
+  <article class="note">
+    <header class="note-header">
+      <h1 class="notes-index-title">Writing</h1>
+      <p class="notes-index-sub">Posts, lecture notes, and technical writing.</p>
+    </header>
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+    <div class="note-body">
+      {%- comment -%} ===== Posts (grouped by category) ===== {%- endcomment -%}
+      {% assign post_categories = "Open Source,Reading Notes,Research,Notes" | split: "," %}
+      {% for cat in post_categories %}
+        {% assign posts_in_cat = site.posts | where: "category", cat %}
+        {% if posts_in_cat.size > 0 %}
+        <section class="notes-category">
+          <h2>{{ cat }}</h2>
+          <ul class="writing-list">
+            {% for post in posts_in_cat %}
+            <li>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              <span class="writing-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+              {% if post.description %}<p class="notes-desc">{{ post.description }}</p>{% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endif %}
+      {% endfor %}
 
-  <div class="container">
+      {%- comment -%} ===== Notes (grouped by note.category) ===== {%- endcomment -%}
+      {% assign note_categories = site.notes | map: "category" | uniq | sort %}
+      {% for cat in note_categories %}
+        {% assign notes_in_cat = site.notes | where: "category", cat | sort: "order" %}
+        {% if notes_in_cat.size > 0 %}
+        <section class="notes-category">
+          <h2>{{ cat }}</h2>
+          <ul class="writing-list">
+            {% for note in notes_in_cat %}
+            <li>
+              <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+              {% if note.date %}<span class="writing-date">{{ note.date | date: "%b %-d, %Y" }}</span>{% endif %}
+              {% if note.description %}<p class="notes-desc">{{ note.description }}</p>{% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endif %}
+      {% endfor %}
 
-    <div class="post-nav" style="padding-top: 40px;">
-      <a href="/">&larr; Home</a>
-    </div>
-
-    <section style="padding-top: 30px;">
-      <h2>Writing</h2>
-
-      {% if site.posts.size == 0 %}
-        <p>No posts yet.</p>
-      {% else %}
-        {% assign categories = "Open Source,Reading Notes,Research,Notes" | split: "," %}
-        {% for cat in categories %}
-          {% assign posts_in_cat = site.posts | where: "category", cat %}
-          {% if posts_in_cat.size > 0 %}
-            <h3 style="margin-top: 36px; font-size: 1.9rem; font-weight: 600; color: #222;">{{ cat }}</h3>
-            <ul style="list-style: none; padding: 0;">
-              {% for post in posts_in_cat %}
-                <li style="margin-bottom: 18px;">
-                  <a href="{{ post.url }}" style="font-size: 1.6rem;">{{ post.title }}</a>
-                  <p style="color: #888; font-size: 1.3rem; margin: 4px 0 0;">
-                    {{ post.date | date: "%b %-d, %Y" }}
-                    {% if post.description %} &middot; {{ post.description }}{% endif %}
-                  </p>
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        {% endfor %}
+      {% if site.posts.size == 0 and site.notes.size == 0 %}
+        <p>No writing yet.</p>
       {% endif %}
-    </section>
+    </div>
+  </article>
 
-    <footer class="site-footer" style="margin-top: 60px;">
-      <p>&copy; {{ "now" | date: "%Y" }} Jiwon Jeong</p>
-    </footer>
-
-  </div>
-
-  <script data-goatcounter="https://jw9603.goatcounter.com/count"
-    async src="//gc.zgo.at/count.js"></script>
-</body>
-</html>
+  {% include footer.html %}
+</div>

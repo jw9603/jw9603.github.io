@@ -1,295 +1,282 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Jiwon Jeong</title>
-  <meta name="description" content="Homepage of Jiwon Jeong">
-  <meta name="author" content="Jiwon Jeong">
+---
+layout: default
+description: AI Research Engineer — NLP, LLM Reasoning
+---
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Jiwon Jeong">
-  <meta property="og:description" content="AI Research Engineer — NLP, LLM Reasoning">
-  <meta property="og:url" content="https://jw9603.github.io/">
-  <meta property="og:image" content="https://jw9603.github.io/profile.jpeg">
+<div class="container">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- ========== Navigation ========== -->
-  <nav class="site-nav">
-    <div class="container nav-inner">
-      <a href="/" class="nav-brand">Jiwon Jeong</a>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/writing/">Writing</a>
-        <a href="/cv.pdf" target="_blank">CV</a>
+  <!-- ========== Header ========== -->
+  <section class="header">
+    <div class="row">
+      <div class="three columns">
+        <img class="profile-pic" src="{{ '/profile.jpeg' | relative_url }}" alt="Jiwon Jeong">
       </div>
-    </div>
-  </nav>
-
-  <div class="container">
-
-    <!-- ========== Header ========== -->
-    <section class="header">
-      <div class="row">
-        <div class="three columns">
-          <img class="profile-pic" src="profile.jpeg" alt="Jiwon Jeong">
-        </div>
-        <div class="nine columns main-description">
-          <h1>Jiwon Jeong</h1>
-          <p>AI Research Engineer @ Lotte Innovate</p>
-          <p>M.S. in Artificial Intelligence, Sungkyunkwan University</p>
-          <p>jwjw9603@gmail.com</p>
-          <p class="icons">
-            <a href="cv.pdf" target="_blank" aria-label="CV"><i class="fa fa-file-pdf-o"></i></a>
-            <a href="https://github.com/jw9603" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/jiwon-jeong-75951235b" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin-square"></i></a>
-            <a href="https://huggingface.co/jiwon9703" target="_blank" rel="noopener" aria-label="Hugging Face"><span class="hf-icon">🤗</span></a>
-            <a href="https://potato9703.tistory.com/" target="_blank" rel="noopener" aria-label="Blog"><i class="fa fa-pencil-square-o"></i></a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== About ========== -->
-    <div class="docs-section" id="about">
-      <h5>About</h5>
-      <p>
-        Hello, I am <b>Jiwon Jeong</b>, an AI Research Engineer at <b>Lotte Innovate</b> (AI Tech LAB, Language AI Team).
-        I received my M.S. in Artificial Intelligence from <b>Sungkyunkwan University</b>, advised by Prof. <a href="https://hogunpark.com/" target="_blank">Hogun Park</a>.
-      </p>
-      <p>
-        My research focuses on <b>reasoning in large language models</b>, with a particular emphasis on <b>language-mixed chain-of-thought</b> and <b>bilingual reasoning</b> for <b>Korean LLMs</b>.
-        I am broadly interested in how <b>post-training</b> elicits reliable reasoning across languages, and in <b>evaluation frameworks</b> that faithfully measure reasoning ability in low-resource settings.
-      </p>
-      <p>
-        My prior work spans <b>logical fallacy detection</b> and <b>commonsense question answering</b>.
-      </p>
-      <p>
-        I am actively seeking a <b>Ph.D. position in NLP/LLM</b>, aiming to build stronger reasoning models and contribute to open and beneficial AI.
-      </p>
-      <p>
-        I also contribute to open source, with merged patches to <a href="https://github.com/huggingface/transformers" target="_blank">Hugging Face Transformers</a>.
-      </p>
-    </div>
-
-    <!-- ========== News ========== -->
-    <div class="docs-section" id="news">
-      <h5>News</h5>
-
-      <div class="news-item">
-        <b class="news-date">Apr 2026</b>
-        Removed dead beam-search dummies left over from v5 cleanup in <a href="https://github.com/huggingface/transformers/pull/45722" target="_blank">transformers PR #45722</a> (merged).
-      </div>
-
-      <div class="news-item">
-        <b class="news-date">Apr 2026</b>
-        Reported and fixed a protobuf decode error masking bug in <a href="https://github.com/huggingface/transformers/pull/45486" target="_blank">transformers PR #45486</a> (merged).
-      </div>
-
-      <div class="news-item">
-        <b class="news-date">Mar 2026</b>
-        My first contribution to <a href="https://github.com/huggingface/transformers" target="_blank">Hugging Face Transformers</a> — <a href="https://github.com/huggingface/transformers/pull/44436" target="_blank">PR #44436</a> (multimodal continuous batching fix) was merged.
-      </div>
-
-      <div class="news-item">
-        <b class="news-date">Sep 2025</b>
-        Joined <b>Lotte Innovate</b> (AI Tech LAB, Language AI Team) as an AI Research Engineer.
-      </div>
-
-      <div class="news-item">
-        <b class="news-date">Jan 2025</b>
-        Our paper on <a href="https://arxiv.org/abs/2503.23363" target="_blank">Logical Fallacy Reasoning with LLMs</a> was accepted to <b>NAACL 2025 Findings</b>.
-      </div>
-
-      <div class="news-item">
-        <b class="news-date">Aug 2024</b>
-        Completed M.S. in Artificial Intelligence at <b>Sungkyunkwan University</b>.
-      </div>
-
-      <div class="news-item">
-        <b class="news-date">Dec 2022</b>
-        Received <b>Outstanding Paper Award</b> at KSC 2022 (top 10% of accepted papers).
-      </div>
-
-      <div class="news-item">
-        <b class="news-date">Mar 2022</b>
-        Began M.S. in Artificial Intelligence at <b>Sungkyunkwan University</b>, advised by Prof. <a href="https://hogunpark.com/" target="_blank">Hogun Park</a>.
-      </div>
-    </div>
-
-    <!-- ========== Education ========== -->
-    <div class="docs-section" id="education">
-      <h5>Education</h5>
-      <div class="paper">
-        <p class="title">
-          <b>Sungkyunkwan University, Dept. of Artificial Intelligence</b>
-          <b style="float:right;">2022 – 2024</b>
-        </p>
-        <p>M.S. in Artificial Intelligence. Advisor: Prof. Hogun Park.</p>
-        <p>Research on Commonsense QA and Logical Fallacy Detection.</p>
-      </div>
-      <div class="paper">
-        <p class="title">
-          <b>Kookmin University, Dept. of Electronic Engineering</b>
-          <b style="float:right;">2016 – 2022</b>
-        </p>
-        <p>B.S. in Electronic Engineering. Major in Electronic Systems.</p>
-      </div>
-    </div>
-
-    <!-- ========== Publications ========== -->
-    <div class="docs-section" id="publications">
-      <h5>Publications</h5>
-
-      <div class="paper">
-        <div class="row">
-          <div class="twelve columns">
-            <h6 class="year-heading">2025</h6><hr />
-            <p class="title"><b>Large Language Models Are Better Logical Fallacy Reasoners with Counterargument, Explanation, and Goal-Aware Prompt Formulation</b></p>
-            <p><b><u>Jiwon Jeong</u></b>, Hyeju Jang, Hogun Park</p>
-            <p><i>NAACL 2025 Findings</i></p>
-            <div class="paper-buttons">
-              <a class="button" href="https://arxiv.org/abs/2503.23363" target="_blank">Paper</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="paper">
-        <div class="row">
-          <div class="twelve columns">
-            <h6 class="year-heading">2022</h6><hr />
-            <p class="title"><b>Improving Commonsense-based QA Model through a Cycle-Encoder</b></p>
-            <p><b><u>Jiwon Jeong</u></b>, Soyoung Lee, Hogun Park</p>
-            <p><i>KSC 2022 (Outstanding Paper Award, Top 10%)</i></p>
-            <div class="paper-buttons">
-              <a class="button" href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224246" target="_blank">Paper</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========== Professional Experience ========== -->
-    <div class="docs-section" id="experience">
-      <h5>Professional Experience</h5>
-      <div class="paper">
-        <p class="title">
-          <b>Lotte Innovate — AI Research Engineer</b>
-          <b style="float:right;">Sep 2025 – Present</b>
-        </p>
-        <p>AI Research Engineer in AI Tech LAB, Language AI Team.</p>
-      </div>
-    </div>
-
-    <!-- ========== Teaching & Mentoring ========== -->
-    <div class="docs-section" id="teaching">
-      <h5>Teaching &amp; Mentoring</h5>
-      <div class="paper">
-        <p class="title">
-          <b>LIKELION — Online Mentor (AI NLP Engineer Intensive Course, 3rd Cohort)</b>
-          <b style="float:right;">Feb 2026</b>
-        </p>
-        <p>Mentoring 4 teams on AI-based service development projects. Code review, project coaching, and Q&amp;A support.</p>
-      </div>
-      <div class="paper">
-        <p class="title">
-          <b>Sungkyunkwan University — Teaching Assistant</b>
-          <b style="float:right;">2023 – 2024</b>
-        </p>
-        <p>TA for Language Model (SWE3032-41) and Deep Learning courses.</p>
-      </div>
-    </div>
-
-    <!-- ========== Activities ========== -->
-    <div class="docs-section" id="activities">
-      <h5>Activities</h5>
-      <div class="paper">
-        <p class="title">
-          <b>Pseudo-Lab (가짜연구소) — Runner, "Deep Dive into LLM"</b>
-          <b style="float:right;">Mar 2026 – Present</b>
-        </p>
-        <p>Runner in the "Deep Dive into LLM" study group at <a href="https://pseudo-lab.com/projects/ac9d57ad-630c-4d86-b8fe-615c0b5ed7c6" target="_blank">Pseudo-Lab</a>, a non-profit AI research community. Studying <a href="https://cs336.stanford.edu/" target="_blank">Stanford CS336: Language Modeling from Scratch (2026)</a> through weekly online discussions, with plans to pursue a research project after the course.</p>
-      </div>
-      <div class="paper">
-        <p class="title">
-          <b>B-Peach LAB (Tech for Impact) — AI Researcher</b>
-          <b style="float:right;">Aug 2025 – Jan 2026</b>
-        </p>
-        <p>Designed evaluation metrics for an AI-powered text adaptation service for slow learners.</p>
-      </div>
-    </div>
-
-    <!-- ========== Projects ========== -->
-    <div class="docs-section" id="projects">
-      <h5>Selected Projects</h5>
-
-      <div class="paper">
-        <p class="title">
-          <b>Hugging Face Transformers — Open Source Contribution</b>
-          <b style="float:right;">Mar 2026 – Present</b>
-        </p>
-        <p>
-          <a href="https://github.com/huggingface/transformers/pull/45722" target="_blank">[PR #45722]</a> (merged Apr 2026) — Removed six dead dummy classes (BeamScorer, ConstrainedBeamSearchScorer, Constraint, ConstraintListState, DisjunctiveConstraint, PhrasalConstraint) left over after v5 cleanup. Fixed <code>check_repo.py</code> failure on PyTorch-less installs.<br>
-          <a href="https://github.com/huggingface/transformers/pull/45486" target="_blank">[PR #45486]</a> (merged Apr 2026) — Reported and fixed a protobuf decode error masking bug in tokenizer loading.<br>
-          <a href="https://github.com/huggingface/transformers/pull/44436" target="_blank">[PR #44436]</a> (merged Mar 2026) — Fixed a bug in continuous batching for multimodal models. Added input preprocessing and a fallback mechanism for non-text-only models.
-        </p>
-      </div>
-
-      <div class="paper">
-        <p class="title">
-          <b>MCP Server for ChatGPT Apps</b>
-          <b style="float:right;">Jan 2026 – Present</b>
-        </p>
-        <p>Built Model Context Protocol servers for ChatGPT Apps (OpenAI). Designed middleware architecture connecting frontend, backend, and LLM-powered enterprise solutions.</p>
-      </div>
-
-      <div class="paper">
-        <p class="title">
-          <b>Korean LLM Benchmark</b>
-          <b style="float:right;">Dec 2025 – Jan 2026</b>
-        </p>
-        <p>Evaluation framework for Korean LLM performance across Korean NLP tasks with standardized metrics and reproducible pipelines.
-          <a href="https://github.com/jw9603/Korean-llm-benchmark" target="_blank">[GitHub]</a>
+      <div class="nine columns main-description">
+        <h1>Jiwon Jeong</h1>
+        <p>AI Research Engineer @ Lotte Innovate</p>
+        <p>M.S. in Artificial Intelligence, Sungkyunkwan University</p>
+        <p>jwjw9603@gmail.com</p>
+        <p class="icons">
+          <a href="{{ '/cv.pdf' | relative_url }}" target="_blank" aria-label="CV"><i class="fa fa-file-pdf-o"></i></a>
+          <a href="https://github.com/jw9603" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/jiwon-jeong-75951235b" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin-square"></i></a>
+          <a href="https://huggingface.co/jiwon9703" target="_blank" rel="noopener" aria-label="Hugging Face"><span class="hf-icon">🤗</span></a>
+          <a href="https://potato9703.tistory.com/" target="_blank" rel="noopener" aria-label="Blog"><i class="fa fa-pencil-square-o"></i></a>
         </p>
       </div>
     </div>
+  </section>
 
-    <!-- ========== Awards ========== -->
-    <div class="docs-section" id="awards">
-      <h5>Awards</h5>
-      <div class="paper">
-        <p class="title">
-          <b>KSC 2022 — Outstanding Paper Award</b>
-          <b style="float:right;">Dec 2022</b>
-        </p>
-        <p>Top 10% of accepted papers.</p>
-      </div>
-      <div class="paper">
-        <p class="title">
-          <b>Text Ethics Hackathon — 2nd Place</b>
-          <b style="float:right;">Dec 2021</b>
-        </p>
-        <p>ELECTRA-based classification model for hate speech and biased text detection.</p>
-      </div>
-    </div>
-
-    <footer class="site-footer">
-      <p>&copy; 2026 Jiwon Jeong</p>
-    </footer>
-
+  <!-- ========== About ========== -->
+  <div class="docs-section" id="about">
+    <h5>About</h5>
+    <p>
+      Hello, I am <b>Jiwon Jeong</b>, an AI Research Engineer at <b>Lotte Innovate</b> (AI Tech LAB, Language AI Team).
+      I received my M.S. in Artificial Intelligence from <b>Sungkyunkwan University</b>, advised by Prof. <a href="https://sites.google.com/view/hogunpark" target="_blank">Hogun Park</a>.
+    </p>
+    <p>
+      My research focuses on <b>reasoning in large language models</b>, with a particular emphasis on <b>language-mixed chain-of-thought</b> and <b>bilingual reasoning</b> for <b>Korean LLMs</b>.
+      I am broadly interested in how <b>post-training</b> elicits reliable reasoning across languages, and in <b>evaluation frameworks</b> that faithfully measure reasoning ability in low-resource settings.
+    </p>
+    <p>
+      My prior work spans <b>logical fallacy detection</b> and <b>commonsense question answering</b>, and I am currently developing evaluation pipelines for Korean language models.
+    </p>
+    <p>
+      I am actively seeking a <b>Ph.D. position in NLP/LLM</b>, aiming to build stronger reasoning models and contribute to open and beneficial AI.
+    </p>
+    <p>
+      I also contribute to open source, with merged patches to <a href="https://github.com/huggingface/transformers" target="_blank">Hugging Face Transformers</a> on multimodal continuous batching and tokenizer loading.
+    </p>
   </div>
 
-  <script data-goatcounter="https://jw9603.goatcounter.com/count"
-    async src="//gc.zgo.at/count.js"></script>
-</body>
-</html>
+  <!-- ========== News ========== -->
+  <div class="docs-section" id="news">
+    <h5>News</h5>
+
+    <div class="news-item">
+      <b class="news-date">Apr 2026</b>
+      Reported and fixed a protobuf decode error masking bug in <a href="https://github.com/huggingface/transformers/pull/45486" target="_blank">transformers PR #45486</a> (merged).
+    </div>
+
+    <div class="news-item">
+      <b class="news-date">Mar 2026</b>
+      My first contribution to <a href="https://github.com/huggingface/transformers" target="_blank">Hugging Face Transformers</a> — <a href="https://github.com/huggingface/transformers/pull/44436" target="_blank">PR #44436</a> (multimodal continuous batching fix) was merged.
+    </div>
+
+    <div class="news-item">
+      <b class="news-date">Sep 2025</b>
+      Joined <b>Lotte Innovate</b> (AI Tech LAB, Language AI Team) as an AI Research Engineer.
+    </div>
+
+    <div class="news-item">
+      <b class="news-date">Jan 2025</b>
+      Our paper on <a href="https://arxiv.org/abs/2503.23363" target="_blank">Logical Fallacy Reasoning with LLMs</a> was accepted to <b>NAACL 2025 Findings</b>.
+    </div>
+
+    <div class="news-item">
+      <b class="news-date">Aug 2024</b>
+      Completed M.S. in Artificial Intelligence at <b>Sungkyunkwan University</b>.
+    </div>
+
+    <div class="news-item">
+      <b class="news-date">Dec 2022</b>
+      Received <b>Outstanding Paper Award</b> at KSC 2022 (top 10% of accepted papers).
+    </div>
+  </div>
+
+  <!-- ========== Education ========== -->
+  <div class="docs-section" id="education">
+    <h5>Education</h5>
+    <div class="paper">
+      <p class="title">
+        <b>Sungkyunkwan University, Dept. of Artificial Intelligence</b>
+        <b style="float:right;">2022 – 2024</b>
+      </p>
+      <p>M.S. in Artificial Intelligence. Advisor: Prof. Hogun Park.</p>
+      <p>Research on Commonsense QA and Logical Fallacy Detection.</p>
+    </div>
+    <div class="paper">
+      <p class="title">
+        <b>Kookmin University, Dept. of Electronic Engineering</b>
+        <b style="float:right;">2016 – 2022</b>
+      </p>
+      <p>B.S. in Electronic Engineering. Major in Electronic Systems.</p>
+    </div>
+  </div>
+
+  <!-- ========== Publications ========== -->
+  <div class="docs-section" id="publications">
+    <h5>Publications</h5>
+
+    <div class="paper">
+      <div class="row">
+        <div class="twelve columns">
+          <h6 class="year-heading">2025</h6><hr />
+          <p class="title"><b>Large Language Models Are Better Logical Fallacy Reasoners with Counterargument, Explanation, and Goal-Aware Prompt Formulation</b></p>
+          <p><b><u>Jiwon Jeong</u></b>, Hyeju Jang, Hogun Park</p>
+          <p><i>NAACL 2025 Findings</i></p>
+          <div class="paper-buttons">
+            <a class="button" href="https://arxiv.org/abs/2503.23363" target="_blank">Paper</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="row">
+        <div class="twelve columns">
+          <h6 class="year-heading">2022</h6><hr />
+          <p class="title"><b>Improving Commonsense-based QA Model through a Cycle-Encoder</b></p>
+          <p><b><u>Jiwon Jeong</u></b>, Soyoung Lee, Hogun Park</p>
+          <p><i>KSC 2022 (Outstanding Paper Award, Top 10%)</i></p>
+          <div class="paper-buttons">
+            <a class="button" href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224246" target="_blank">Paper</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== Professional Experience ========== -->
+  <div class="docs-section" id="experience">
+    <h5>Professional Experience</h5>
+    <div class="paper">
+      <p class="title">
+        <b>Lotte Innovate — AI Research Engineer</b>
+        <b style="float:right;">Sep 2025 – Present</b>
+      </p>
+      <p>AI Research Engineer in AI Tech LAB, Language AI Team.</p>
+    </div>
+  </div>
+
+  <!-- ========== Teaching & Mentoring ========== -->
+  <div class="docs-section" id="teaching">
+    <h5>Teaching &amp; Mentoring</h5>
+    <div class="paper">
+      <p class="title">
+        <b>LIKELION — Online Mentor (AI NLP Engineer Intensive Course, 3rd Cohort)</b>
+        <b style="float:right;">Feb 2026</b>
+      </p>
+      <p>Mentoring 4 teams on AI-based service development projects. Code review, project coaching, and Q&amp;A support.</p>
+    </div>
+    <div class="paper">
+      <p class="title">
+        <b>Sungkyunkwan University — Teaching Assistant</b>
+        <b style="float:right;">2023 – 2024</b>
+      </p>
+      <p>TA for Language Model (SWE3032-41) and Deep Learning courses.</p>
+    </div>
+  </div>
+
+  <!-- ========== Activities ========== -->
+  <div class="docs-section" id="activities">
+    <h5>Activities</h5>
+    <div class="paper">
+      <p class="title">
+        <b>Pseudo-Lab (가짜연구소) — Runner, "Deep Dive into LLM"</b>
+        <b style="float:right;">Mar 2026 – Present</b>
+      </p>
+      <p>Runner in the "Deep Dive into LLM" study group at <a href="https://pseudo-lab.com/projects/ac9d57ad-630c-4d86-b8fe-615c0b5ed7c6" target="_blank">Pseudo-Lab</a>, a non-profit AI research community. Studying <a href="https://cs336.stanford.edu/" target="_blank">Stanford CS336: Language Modeling from Scratch (2026)</a> through weekly online discussions, with plans to pursue a research project after the course.</p>
+    </div>
+    <div class="paper">
+      <p class="title">
+        <b>B-Peach LAB (Tech for Impact) — AI Researcher</b>
+        <b style="float:right;">Aug 2025 – Jan 2026</b>
+      </p>
+      <p>Designed evaluation metrics for an AI-powered text adaptation service for slow learners.</p>
+    </div>
+  </div>
+
+  <!-- ========== Projects ========== -->
+  <div class="docs-section" id="projects">
+    <h5>Selected Projects</h5>
+
+    <div class="paper">
+      <p class="title">
+        <b>Hugging Face Transformers — Open Source Contribution</b>
+        <b style="float:right;">Mar 2026</b>
+      </p>
+      <p>
+        <a href="https://github.com/huggingface/transformers/pull/45486" target="_blank">[PR #45486]</a> (merged Apr 2026) — Reported and fixed a protobuf decode error masking bug in tokenizer loading.<br>
+        <a href="https://github.com/huggingface/transformers/pull/44436" target="_blank">[PR #44436]</a> (merged Mar 2026) — Fixed a bug in continuous batching for multimodal models. Added input preprocessing and a fallback mechanism for non-text-only models.
+      </p>
+    </div>
+
+    <div class="paper">
+      <p class="title">
+        <b>MCP Server for ChatGPT Apps</b>
+        <b style="float:right;">Jan 2026 – Present</b>
+      </p>
+      <p>Built Model Context Protocol servers for ChatGPT Apps (OpenAI). Designed middleware architecture connecting frontend, backend, and LLM-powered enterprise solutions.</p>
+    </div>
+
+    <div class="paper">
+      <p class="title">
+        <b>Korean LLM Benchmark</b>
+        <b style="float:right;">Dec 2025 – Jan 2026</b>
+      </p>
+      <p>Evaluation framework for Korean LLM performance across Korean NLP tasks with standardized metrics and reproducible pipelines.
+        <a href="https://github.com/jw9603/Korean-llm-benchmark" target="_blank">[GitHub]</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ========== Writing ========== -->
+  <div class="docs-section" id="writing">
+    <h5>Writing</h5>
+
+    {% assign recent_posts = site.posts | slice: 0, 3 %}
+    {% if recent_posts.size > 0 %}
+    <div class="writing-group">
+      <p class="writing-group-title"><b>Posts</b></p>
+      <ul class="writing-list">
+        {% for post in recent_posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          {% if post.date %}<span class="writing-date">{{ post.date | date: "%b %-d, %Y" }}</span>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% assign cs336_notes = site.notes | where: "category", "CS336 Lecture Notes" | sort: "order" %}
+    {% if cs336_notes.size > 0 %}
+    <div class="writing-group">
+      <p class="writing-group-title"><b>CS336 — Language Modeling from Scratch</b></p>
+      <ul class="writing-list">
+        {% for note in cs336_notes %}
+        <li>
+          <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+          {% if note.date %}<span class="writing-date">{{ note.date | date: "%b %-d, %Y" }}</span>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <p class="writing-more"><a href="{{ '/writing/' | relative_url }}">All writing →</a></p>
+  </div>
+
+  <!-- ========== Awards ========== -->
+  <div class="docs-section" id="awards">
+    <h5>Awards</h5>
+    <div class="paper">
+      <p class="title">
+        <b>KSC 2022 — Outstanding Paper Award</b>
+        <b style="float:right;">Dec 2022</b>
+      </p>
+      <p>Top 10% of accepted papers.</p>
+    </div>
+    <div class="paper">
+      <p class="title">
+        <b>Text Ethics Hackathon — 2nd Place</b>
+        <b style="float:right;">Dec 2021</b>
+      </p>
+      <p>ELECTRA-based classification model for hate speech and biased text detection.</p>
+    </div>
+  </div>
+
+  {% include footer.html %}
+
+</div>

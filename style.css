@@ -233,6 +233,33 @@ a.button:hover,
   text-decoration: none;
 }
 
+/* ===== Writing section (home) ===== */
+.writing-group {
+  margin-bottom: 16px;
+}
+.writing-group-title {
+  margin-bottom: 6px !important;
+}
+.writing-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.writing-list li {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+  line-height: 1.55;
+}
+.writing-date {
+  color: #888;
+  font-size: 1.3rem;
+  margin-left: 8px;
+}
+.writing-more {
+  margin-top: 12px;
+  font-size: 1.4rem;
+}
+
 /* ===== Footer ===== */
 .site-footer {
   padding: 30px 0 40px 0;
