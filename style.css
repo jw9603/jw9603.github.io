@@ -1,16 +1,91 @@
+/* ===== Theme variables ===== */
+:root {
+  --bg: #fff;
+  --bg-elevated: #fafafa;
+  --bg-table-head: #f7f7f7;
+
+  --text: #222;
+  --text-secondary: #333;
+  --text-tertiary: #555;
+  --text-muted: #888;
+  --text-faint: #666;
+
+  --heading: #111;
+  --heading-strong: #222;
+
+  --link: #1eaedb;
+  --link-hover: #0fa0ce;
+
+  --accent: #fa8072;
+
+  --border: #eee;
+  --border-strong: #ddd;
+  --border-table: #e3e3e3;
+  --border-faint: #ccc;
+
+  --code-bg: #f3f3f3;
+  --code-border: #e6e6e6;
+  --code-text: #c0392b;
+
+  --button-text: #555;
+  --button-border: #bbb;
+  --button-hover-text: #fff;
+
+  --marker: #888;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --bg-elevated: #161b22;
+    --bg-table-head: #161b22;
+
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --text-tertiary: #b1bac4;
+    --text-muted: #8b949e;
+    --text-faint: #8b949e;
+
+    --heading: #f0f6fc;
+    --heading-strong: #f0f6fc;
+
+    --link: #58a6ff;
+    --link-hover: #79c0ff;
+
+    --accent: #ff8a7a;
+
+    --border: #21262d;
+    --border-strong: #30363d;
+    --border-table: #30363d;
+    --border-faint: #30363d;
+
+    --code-bg: #2d333b;
+    --code-border: #444c56;
+    --code-text: #ff7b72;
+
+    --button-text: #c9d1d9;
+    --button-border: #30363d;
+    --button-hover-text: #fff;
+
+    --marker: #6e7681;
+  }
+}
+
 /* ===== Overrides on Skeleton.css ===== */
 
 body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222;
+  color: var(--text);
+  background: var(--bg);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
-  color: #1eaedb;
+  color: var(--link);
   text-decoration: none;
 }
 a:hover {
-  color: #0fa0ce;
+  color: var(--link-hover);
   text-decoration: underline;
 }
 
@@ -31,19 +106,20 @@ a:hover {
   font-weight: 600;
   margin-bottom: 8px;
   letter-spacing: -.05rem;
+  color: var(--heading);
 }
 
 .main-description p {
   margin: 3px 0;
   font-size: 1.6rem;
-  color: #444;
+  color: var(--text-tertiary);
 }
 
 .main-description .icons,
 .header .fa,
 .header .ai {
   font-size: 2.2rem;
-  color: #444;
+  color: var(--text-tertiary);
 }
 
 .header span,
@@ -53,7 +129,7 @@ a:hover {
 
 .header a:hover {
   text-decoration: none;
-  color: #fa8072;
+  color: var(--accent);
 }
 
 .header .fa,
@@ -63,7 +139,7 @@ a:hover {
 
 .header a:hover .fa,
 .header a:hover .ai {
-  color: #fa8072;
+  color: var(--accent);
 }
 
 .hf-icon {
@@ -76,8 +152,8 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #fff;
-  border-bottom: 1px solid #eee;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
   padding: 14px 0;
   font-size: 1.4rem;
 }
@@ -89,7 +165,7 @@ a:hover {
 }
 
 .nav-brand {
-  color: #444;
+  color: var(--text-tertiary);
   font-weight: 600;
   font-size: 1.5rem;
   letter-spacing: -.01rem;
@@ -97,19 +173,19 @@ a:hover {
 }
 
 .nav-brand:hover {
-  color: #fa8072;
+  color: var(--accent);
   text-decoration: none;
 }
 
 .nav-links a {
-  color: #444;
+  color: var(--text-tertiary);
   margin-left: 22px;
   font-weight: 500;
   transition: color 0.15s ease;
 }
 
 .nav-links a:hover {
-  color: #fa8072;
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -135,15 +211,15 @@ a:hover {
   margin-top: 20px;
   margin-bottom: 16px;
   padding-bottom: 6px;
-  border-bottom: 1px solid #eee;
-  color: #222;
+  border-bottom: 1px solid var(--border);
+  color: var(--heading-strong);
   letter-spacing: -.02rem;
 }
 
 .docs-section p {
   font-size: 1.5rem;
   line-height: 1.65;
-  color: #333;
+  color: var(--text-secondary);
   margin-bottom: 10px;
 }
 
@@ -152,11 +228,11 @@ a:hover {
   margin-bottom: 10px;
   font-size: 1.5rem;
   line-height: 1.6;
-  color: #333;
+  color: var(--text-secondary);
 }
 
 .news-date {
-  color: #fa8072;
+  color: var(--accent);
   font-weight: 600;
   margin-right: 14px;
   display: inline-block;
@@ -172,7 +248,7 @@ a:hover {
   margin: 2px 0;
   font-size: 1.5rem;
   line-height: 1.55;
-  color: #333;
+  color: var(--text-secondary);
 }
 
 .paper .title {
@@ -182,19 +258,19 @@ a:hover {
 }
 
 .paper .title b {
-  color: #222;
+  color: var(--heading-strong);
   font-weight: 600;
 }
 
 .paper i {
-  color: #666;
+  color: var(--text-faint);
 }
 
 .year-heading {
   display: inline-block;
   font-size: 1.8rem !important;
   font-weight: 600;
-  color: #222;
+  color: var(--heading-strong);
   margin: 16px 0 0 0 !important;
   border: none !important;
   padding: 0 !important;
@@ -215,9 +291,9 @@ a.button,
   font-weight: 600;
   letter-spacing: .05rem;
   text-transform: uppercase;
-  color: #555;
+  color: var(--button-text);
   background-color: transparent;
-  border: 1px solid #bbb;
+  border: 1px solid var(--button-border);
   border-radius: 3px;
   margin-right: 6px;
   margin-bottom: 6px;
@@ -227,9 +303,9 @@ a.button,
 
 a.button:hover,
 .paper-buttons .button:hover {
-  color: #fff;
-  background-color: #fa8072;
-  border-color: #fa8072;
+  color: var(--button-hover-text);
+  background-color: var(--accent);
+  border-color: var(--accent);
   text-decoration: none;
 }
 
@@ -245,7 +321,7 @@ a.button:hover,
   line-height: 1.55;
 }
 .writing-date {
-  color: #888;
+  color: var(--text-muted);
   font-size: 1.3rem;
   margin-left: 8px;
 }
@@ -254,9 +330,9 @@ a.button:hover,
 .site-footer {
   padding: 30px 0 40px 0;
   margin-top: 30px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border);
   text-align: center;
-  color: #888;
+  color: var(--text-muted);
   font-size: 1.3rem;
 }
 
