@@ -3,6 +3,18 @@ layout: default
 description: AI Research Engineer — NLP, LLM Reasoning
 ---
 
+<!-- ========== Navigation ========== -->
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <a href="{{ '/' | relative_url }}" class="nav-brand">Jiwon Jeong</a>
+    <div class="nav-links">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/writing/' | relative_url }}">Writing</a>
+      <a href="{{ '/cv.pdf' | relative_url }}" target="_blank">CV</a>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
 
   <!-- ========== Header ========== -->
@@ -32,26 +44,31 @@ description: AI Research Engineer — NLP, LLM Reasoning
     <h5>About</h5>
     <p>
       Hello, I am <b>Jiwon Jeong</b>, an AI Research Engineer at <b>Lotte Innovate</b> (AI Tech LAB, Language AI Team).
-      I received my M.S. in Artificial Intelligence from <b>Sungkyunkwan University</b>, advised by Prof. <a href="https://sites.google.com/view/hogunpark" target="_blank">Hogun Park</a>.
+      I received my M.S. in Artificial Intelligence from <b>Sungkyunkwan University</b>, advised by Prof. <a href="https://hogunpark.com/" target="_blank">Hogun Park</a>.
     </p>
     <p>
       My research focuses on <b>reasoning in large language models</b>, with a particular emphasis on <b>language-mixed chain-of-thought</b> and <b>bilingual reasoning</b> for <b>Korean LLMs</b>.
       I am broadly interested in how <b>post-training</b> elicits reliable reasoning across languages, and in <b>evaluation frameworks</b> that faithfully measure reasoning ability in low-resource settings.
     </p>
     <p>
-      My prior work spans <b>logical fallacy detection</b> and <b>commonsense question answering</b>, and I am currently developing evaluation pipelines for Korean language models.
+      My prior work spans <b>logical fallacy detection</b> and <b>commonsense question answering</b>.
     </p>
     <p>
       I am actively seeking a <b>Ph.D. position in NLP/LLM</b>, aiming to build stronger reasoning models and contribute to open and beneficial AI.
     </p>
     <p>
-      I also contribute to open source, with merged patches to <a href="https://github.com/huggingface/transformers" target="_blank">Hugging Face Transformers</a> on multimodal continuous batching and tokenizer loading.
+      I also contribute to open source, with merged patches to <a href="https://github.com/huggingface/transformers" target="_blank">Hugging Face Transformers</a>.
     </p>
   </div>
 
   <!-- ========== News ========== -->
   <div class="docs-section" id="news">
     <h5>News</h5>
+
+    <div class="news-item">
+      <b class="news-date">Apr 2026</b>
+      Removed dead beam-search dummies left over from v5 cleanup in <a href="https://github.com/huggingface/transformers/pull/45722" target="_blank">transformers PR #45722</a> (merged).
+    </div>
 
     <div class="news-item">
       <b class="news-date">Apr 2026</b>
@@ -81,6 +98,11 @@ description: AI Research Engineer — NLP, LLM Reasoning
     <div class="news-item">
       <b class="news-date">Dec 2022</b>
       Received <b>Outstanding Paper Award</b> at KSC 2022 (top 10% of accepted papers).
+    </div>
+
+    <div class="news-item">
+      <b class="news-date">Mar 2022</b>
+      Began M.S. in Artificial Intelligence at <b>Sungkyunkwan University</b>, advised by Prof. <a href="https://hogunpark.com/" target="_blank">Hogun Park</a>.
     </div>
   </div>
 
@@ -194,9 +216,10 @@ description: AI Research Engineer — NLP, LLM Reasoning
     <div class="paper">
       <p class="title">
         <b>Hugging Face Transformers — Open Source Contribution</b>
-        <b style="float:right;">Mar 2026</b>
+        <b style="float:right;">Mar 2026 – Present</b>
       </p>
       <p>
+        <a href="https://github.com/huggingface/transformers/pull/45722" target="_blank">[PR #45722]</a> (merged Apr 2026) — Removed six dead dummy classes (BeamScorer, ConstrainedBeamSearchScorer, Constraint, ConstraintListState, DisjunctiveConstraint, PhrasalConstraint) left over after v5 cleanup. Fixed <code>check_repo.py</code> failure on PyTorch-less installs.<br>
         <a href="https://github.com/huggingface/transformers/pull/45486" target="_blank">[PR #45486]</a> (merged Apr 2026) — Reported and fixed a protobuf decode error masking bug in tokenizer loading.<br>
         <a href="https://github.com/huggingface/transformers/pull/44436" target="_blank">[PR #44436]</a> (merged Mar 2026) — Fixed a bug in continuous batching for multimodal models. Added input preprocessing and a fallback mechanism for non-text-only models.
       </p>
@@ -219,43 +242,6 @@ description: AI Research Engineer — NLP, LLM Reasoning
         <a href="https://github.com/jw9603/Korean-llm-benchmark" target="_blank">[GitHub]</a>
       </p>
     </div>
-  </div>
-
-  <!-- ========== Writing ========== -->
-  <div class="docs-section" id="writing">
-    <h5>Writing</h5>
-
-    {% assign recent_posts = site.posts | slice: 0, 3 %}
-    {% if recent_posts.size > 0 %}
-    <div class="writing-group">
-      <p class="writing-group-title"><b>Posts</b></p>
-      <ul class="writing-list">
-        {% for post in recent_posts %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          {% if post.date %}<span class="writing-date">{{ post.date | date: "%b %-d, %Y" }}</span>{% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    {% assign cs336_notes = site.notes | where: "category", "CS336 Lecture Notes" | sort: "order" %}
-    {% if cs336_notes.size > 0 %}
-    <div class="writing-group">
-      <p class="writing-group-title"><b>CS336 — Language Modeling from Scratch</b></p>
-      <ul class="writing-list">
-        {% for note in cs336_notes %}
-        <li>
-          <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
-          {% if note.date %}<span class="writing-date">{{ note.date | date: "%b %-d, %Y" }}</span>{% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    <p class="writing-more"><a href="{{ '/writing/' | relative_url }}">All writing →</a></p>
   </div>
 
   <!-- ========== Awards ========== -->
