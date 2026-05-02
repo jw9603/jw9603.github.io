@@ -238,6 +238,24 @@
   line-height: 1.55;
 }
 
+/* ===== Comments (giscus) ===== */
+.comments-section {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+.comments-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 20px 0;
+  letter-spacing: -.02rem;
+}
+.comments-section .giscus,
+.comments-section .giscus-frame {
+  width: 100%;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 600px) {
   .container-narrow {
