@@ -94,11 +94,21 @@
 
 .note-body ul,
 .note-body ol {
-  padding-left: 1.6em;
+  list-style-position: outside;
+  padding-left: 1.8em;
   margin: 0.5em 0 1.2em 0;
 }
+.note-body ol { list-style-type: decimal; }
+.note-body ul { list-style-type: disc; }
+.note-body ol ol { list-style-type: lower-alpha; }
+.note-body ul ul { list-style-type: circle; }
 .note-body li {
   margin-bottom: 0.35em;
+  padding-left: 0.2em;
+}
+.note-body li::marker {
+  color: #888;
+  font-weight: 600;
 }
 .note-body li > p {
   margin: 0.3em 0;
@@ -158,16 +168,19 @@
 }
 
 /* ===== Code blocks ===== */
-.note-body pre {
+.note-body pre,
+.note-body div.highlighter-rouge pre,
+.note-body div.highlight pre {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   font-size: 1.35rem;
-  line-height: 1.55;
-  background: #1e1e1e;
-  color: #e8e8e8;
+  line-height: 1.6;
+  background: #1b1f24;
+  color: #f6f8fa;
   padding: 14px 18px;
   border-radius: 6px;
   overflow-x: auto;
   margin: 1em 0;
+  white-space: pre;
 }
 .note-body pre code {
   background: transparent;
@@ -175,12 +188,15 @@
   color: inherit;
   padding: 0;
   font-size: inherit;
+  white-space: pre;
 }
-.note-body .highlight {
+.note-body div.highlighter-rouge,
+.note-body div.highlight {
   background: transparent;
   margin: 1em 0;
 }
-.note-body .highlight pre {
+.note-body div.highlight pre,
+.note-body div.highlighter-rouge pre {
   margin: 0;
 }
 
