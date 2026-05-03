@@ -47,13 +47,23 @@
           ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
         });
       }
-      // 2) Render GitHub-style ```math fenced blocks (kramdown emits div.language-math)
+      // 2) Render GitHub-style ```math fenced blocks
+      //    kramdown emits <pre><code class="language-math">...</code></pre>
+      //    (Rouge has no "math" lexer, so the usual highlighter-rouge wrappers are absent)
       if (typeof katex !== "undefined") {
-        document.querySelectorAll("div.language-math").forEach(function (el) {
-          var code = el.querySelector("code");
-          if (!code) return;
+        document.querySelectorAll("pre > code.language-math").forEach(function (code) {
+          var pre = code.parentElement;
           try {
-            katex.render(code.textContent, el, { displayMode: true, throwOnError: false });
+            katex.render(code.textContent, pre, { displayMode: true, throwOnError: false });
+            pre.classList.add("math-rendered");
+          } catch (e) { console.error("KaTeX render failed:", e); }
+        });
+        // Also handle inline `<code class="language-math">` if any
+        document.querySelectorAll("code.language-math").forEach(function (code) {
+          if (code.parentElement && code.parentElement.tagName === "PRE") return;
+          try {
+            katex.render(code.textContent, code, { displayMode: false, throwOnError: false });
+            code.classList.add("math-rendered");
           } catch (e) { console.error("KaTeX render failed:", e); }
         });
       }

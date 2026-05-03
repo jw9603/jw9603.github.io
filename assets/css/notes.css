@@ -200,6 +200,25 @@
   margin: 0;
 }
 
+/* ===== KaTeX-rendered math (override dark code-block styling) ===== */
+.note-body pre.math-rendered {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  margin: 1em 0;
+  border-radius: 0;
+  overflow-x: auto;
+  white-space: normal;
+  text-align: center;
+}
+.note-body code.math-rendered {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+}
+
 /* ===== Rouge syntax highlight (minimal, for dark code blocks) ===== */
 .highlight .c, .highlight .c1, .highlight .cm { color: #7c8590; font-style: italic; } /* comment */
 .highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt { color: #ff7b72; } /* keyword */
