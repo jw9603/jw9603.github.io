@@ -302,8 +302,9 @@ PyTorch의 기본 floating point dtype은 보통 `float32`입니다. `float32`�
 즉, LLM 학습에서 memory accounting은 어려운 마법이 아니라 다음 질문을 반복하는 것입니다.
 
 > 이 tensor는 원소가 몇 개이고, 원소 하나는 몇 byte인가?
-> 
+
 ---
+
 ## 5. Floating point dtype: fp32, fp16, bf16, fp8, fp4
 
 LLM 학습에서는 숫자를 어떤 precision으로 저장하느냐가 memory와 stability를 크게 좌우합니다.
