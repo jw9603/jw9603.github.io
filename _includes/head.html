@@ -31,7 +31,33 @@
   {% if page.layout == "note" or page.layout == "post" %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-    onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false},{left: '\\(', right: '\\)', display: false},{left: '\\[', right: '\\]', display: true}]});"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 1) Auto-render $...$, $$...$$, \(...\), \[...\] in body text
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$",  right: "$",  display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\[", right: "\\]", display: true}
+          ],
+          throwOnError: false,
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+        });
+      }
+      // 2) Render GitHub-style ```math fenced blocks (kramdown emits div.language-math)
+      if (typeof katex !== "undefined") {
+        document.querySelectorAll("div.language-math").forEach(function (el) {
+          var code = el.querySelector("code");
+          if (!code) return;
+          try {
+            katex.render(code.textContent, el, { displayMode: true, throwOnError: false });
+          } catch (e) { console.error("KaTeX render failed:", e); }
+        });
+      }
+    });
+  </script>
   {% endif %}
 </head>
