@@ -3,7 +3,7 @@ layout: note
 title: "CS336 Lecture 02: Resource Accounting"
 description: "Stanford CS336 Lecture 02 정리 — FLOPs·메모리 회계, 70B/15T 토큰 학습 시간 추정, AdamW로 H100 8장에서 학습 가능한 최대 모델 크기, tensor 기초"
 date: 2026-05-03
-category: "CS336 Lecture Notes"
+category: "Stanford CS336 | Spring 2026"
 order: 2
 lang: ko
 ---

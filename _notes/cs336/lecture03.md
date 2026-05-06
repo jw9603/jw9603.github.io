@@ -3,7 +3,7 @@ layout: note
 title: "CS336 Lecture 03: LM Architecture and Hyperparameters"
 description: "Stanford CS336 Lecture 03 정리 — Pre-vs-post norm, LayerNorm vs RMSNorm, activation·GLU 변형, 그리고 transformer architecture 결정의 hyperparameter 직관"
 date: 2026-05-06
-category: "CS336 Lecture Notes"
+category: "Stanford CS336 | Spring 2026"
 order: 3
 lang: ko
 ---

@@ -42,6 +42,8 @@ permalink: /writing/
         {% if notes_in_cat.size > 0 %}
         <section class="notes-category">
           <h2>{{ cat }}</h2>
+          {% assign cat_meta = site.data.categories[cat] %}
+          {% if cat_meta and cat_meta.subtitle %}<p class="category-subtitle">{{ cat_meta.subtitle }}</p>{% endif %}
           <ul class="writing-list">
             {% for note in notes_in_cat %}
             <li>

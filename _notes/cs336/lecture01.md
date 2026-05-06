@@ -3,7 +3,7 @@ layout: note
 title: "CS336 Lecture 01: Overview and Tokenization"
 description: "Stanford CS336 Lecture 01 정리 — 강의 motivation, 현재 LM 생태계, open model, executable lecture, character/byte/word/BPE tokenizer 비교"
 date: 2026-05-02
-category: "CS336 Lecture Notes"
+category: "Stanford CS336 | Spring 2026"
 order: 1
 lang: ko
 ---

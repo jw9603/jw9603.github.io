@@ -1,0 +1,5 @@
+# Per-category metadata used on /writing/ to show a subtitle under the category heading.
+# Keys must match the front-matter `category` value of the post or note exactly.
+
+"Stanford CS336 | Spring 2026":
+  subtitle: "Language Modeling from Scratch"

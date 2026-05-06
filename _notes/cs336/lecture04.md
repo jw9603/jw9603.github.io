@@ -3,7 +3,7 @@ layout: note
 title: "CS336 Lecture 04: Attention Alternatives and Mixtures of Experts"
 description: "Stanford CS336 Lecture 04 정리 — attention 비용을 줄이는 linear attention·Mamba-2·gated delta net 계열, 그리고 파라미터를 늘리되 계산량은 제한하는 MoE 구조"
 date: 2026-05-06
-category: "CS336 Lecture Notes"
+category: "Stanford CS336 | Spring 2026"
 order: 4
 lang: ko
 ---
