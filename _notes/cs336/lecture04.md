@@ -8,6 +8,11 @@ order: 4
 lang: ko
 ---
 
+> 기준 자료: `lecture_04.pdf` (CS336 Lecture 4). 각 페이지를 하나의 제목으로 두고, 원문 흐름을 유지하면서 한국어로 상세 해설을 붙인 정리본입니다.
+
+> 수식은 Markdown의 LaTeX 수식 표기(`$...$`, `$$...$$`)로 정리했습니다. GitHub/Obsidian/Typora/VS Code Markdown Preview 등 LaTeX 렌더링을 지원하는 뷰어에서 수식 형태로 확인할 수 있습니다.
+
+---
 
 ## Page 1. 
 Attention Alternatives and Mixture of Expert가 이번 강의의 주제입니다.
