@@ -1,0 +1,78 @@
+{%- comment -%}
+  Emit JSON-LD structured data based on page type:
+    /            -> Person (homepage)
+    layout: note -> Article (lecture notes)
+    layout: post -> Article (blog posts)
+    other        -> nothing
+{%- endcomment -%}
+{%- if page.url == "/" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "{{ '/' | absolute_url }}#person",
+  "name": "Jiwon Jeong",
+  "jobTitle": "AI Research Engineer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Lotte Innovate"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Sungkyunkwan University"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Kookmin University"
+    }
+  ],
+  "url": "{{ '/' | absolute_url }}",
+  "image": "{{ '/profile.jpeg' | absolute_url }}",
+  "email": "jwjw9603@gmail.com",
+  "sameAs": [
+    "https://github.com/jw9603",
+    "https://www.linkedin.com/in/jiwon-jeong-75951235b",
+    "https://huggingface.co/jiwon9703",
+    "https://potato9703.tistory.com/"
+  ],
+  "knowsAbout": [
+    "Large Language Models",
+    "Reasoning in LLMs",
+    "Korean NLP",
+    "Bilingual Reasoning",
+    "Language-Mixed Chain-of-Thought",
+    "Logical Fallacy Detection",
+    "Commonsense Question Answering"
+  ]
+}
+</script>
+{%- elsif page.layout == "note" or page.layout == "post" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | jsonify }},
+  {% if page.description %}"description": {{ page.description | jsonify }},
+  {% endif %}"author": {
+    "@type": "Person",
+    "@id": "{{ '/' | absolute_url }}#person",
+    "name": "Jiwon Jeong",
+    "url": "{{ '/' | absolute_url }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "{{ '/' | absolute_url }}#person",
+    "name": "Jiwon Jeong",
+    "url": "{{ '/' | absolute_url }}"
+  },
+  {% if page.date %}"datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  {% endif %}"image": "{{ '/profile.jpeg' | absolute_url }}",
+  "url": "{{ page.url | absolute_url }}",
+  "mainEntityOfPage": "{{ page.url | absolute_url }}",
+  "inLanguage": {{ page.lang | default: site.lang | default: 'en' | jsonify }}{% if page.category %},
+  "articleSection": {{ page.category | jsonify }}{% endif %}
+}
+</script>
+{%- endif -%}
