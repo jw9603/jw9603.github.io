@@ -34,50 +34,12 @@
   --marker: #888;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0d1117;
-    --bg-elevated: #161b22;
-    --bg-table-head: #161b22;
-
-    --text: #e6edf3;
-    --text-secondary: #c9d1d9;
-    --text-tertiary: #b1bac4;
-    --text-muted: #8b949e;
-    --text-faint: #8b949e;
-
-    --heading: #f0f6fc;
-    --heading-strong: #f0f6fc;
-
-    --link: #58a6ff;
-    --link-hover: #79c0ff;
-
-    --accent: #ff8a7a;
-
-    --border: #21262d;
-    --border-strong: #30363d;
-    --border-table: #30363d;
-    --border-faint: #30363d;
-
-    --code-bg: #2d333b;
-    --code-border: #444c56;
-    --code-text: #ff7b72;
-
-    --button-text: #c9d1d9;
-    --button-border: #30363d;
-    --button-hover-text: #fff;
-
-    --marker: #6e7681;
-  }
-}
-
 /* ===== Overrides on Skeleton.css ===== */
 
 body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--text);
   background: var(--bg);
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
