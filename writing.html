@@ -16,7 +16,7 @@ permalink: /writing/
 
     <div class="note-body">
       {%- comment -%} ===== Posts (grouped by category) ===== {%- endcomment -%}
-      {% assign post_categories = "Open Source,Reading Notes,Research,Notes" | split: "," %}
+      {% assign post_categories = "Paper Review,Open Source,Reading Notes,Research,Notes" | split: "," %}
       {% for cat in post_categories %}
         {% assign posts_in_cat = site.posts | where: "category", cat %}
         {% if posts_in_cat.size > 0 %}
