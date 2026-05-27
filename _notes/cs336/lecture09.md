@@ -90,7 +90,7 @@ L(x) = A x^{-\alpha} + L_{\infty}
 
 - $\hat{h}$: 학습으로 얻은 hypothesis
 - $\mathcal{H}$: 가능한 hypothesis 집합
-- $k$: hypothesis 개수. 보통 $k = |\mathcal{H}|$로 볼 수 있음
+- $k$: hypothesis 개수. 보통 $k = \lvert\mathcal{H}\rvert$로 볼 수 있음
 - $m$: sample 수
 - $\delta$: confidence level과 관련된 값. 보통 확률 $1-\delta$ 이상으로 bound가 성립한다고 해석
 - $\epsilon(h)$: hypothesis $h$의 error
@@ -639,7 +639,7 @@ Lecture09의 공식들은 모두 하나의 질문으로 연결됩니다.
 
 - $\hat{h}$: 학습 알고리즘이 training data를 보고 선택한 hypothesis입니다.
 - $\mathcal{H}$: 가능한 hypothesis들의 집합입니다.
-- $k$: hypothesis의 개수입니다. 보통 $k = |\mathcal{H}|$로 볼 수 있습니다.
+- $k$: hypothesis의 개수입니다. 보통 $k = \lvert\mathcal{H}\rvert$로 볼 수 있습니다.
 - $m$: training sample 수입니다.
 - $\delta$: bound가 실패할 확률과 관련된 값입니다. 보통 확률 $1-\delta$ 이상으로 이 부등식이 성립한다고 해석합니다.
 - $\epsilon(h)$: hypothesis $h$의 true error 또는 population error입니다.
