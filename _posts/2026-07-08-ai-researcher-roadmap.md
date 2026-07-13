@@ -57,7 +57,7 @@ Megatron-LM을 읽으려면 Distributed Training을 알아야 했으며,
 
 Jacobian Lens나 Sparse Autoencoder(SAE)를 이해하려면 선형대수와 최적화 이론을 다시 공부해야 했다.
 
-Hypernetwork를 연구하다 보면 수학이 필요했고, CUDA를 이해하려면 컴퓨터 구조와 운영체제까지 연결되었다.
+CUDA를 이해하려면 컴퓨터 구조와 운영체제까지 연결되었다.
 
 결국 새로운 연구를 할수록 오히려 **기초의 중요성**을 더 크게 느끼게 되었다.
 
@@ -128,7 +128,6 @@ AI 연구 자체의 발전에 기여하는 연구자가 되고 싶다.
 현재 진행하고 있거나 탐색하고 있는 연구 주제는 다음과 같다.
 
 * Transformer Architecture
-* Hypernetworks
 * Mechanistic Interpretability
 * Multilingual Reasoning
 * Efficient Training
