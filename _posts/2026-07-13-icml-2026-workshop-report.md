@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ICML 2026 워크숍 참관기 — LLM·Agent 포스터 세션 리뷰"
-description: "ICML 2026 워크숍 데이 참관기. Weight-Space Symmetries 워크숍을 중심으로 발표를 듣고, 포스터 세션에서 확인한 LLM·Agent 관련 논문 15편을 주제별(Post-Training / Reasoning Trace / Agent Memory / 편향·안전성 / 시스템 최적화 / 학습 구조)로 정리한다."
+description: "ICML 2026 워크숍 데이 참관기. Weight-Space Symmetries 워크숍을 중심으로 발표를 듣고, 포스터 세션에서 확인한 LLM·Agent 관련 논문 14편을 주제별(Post-Training / Reasoning Trace / Agent Memory / 편향·안전성 / 학습 구조)로 정리한다."
 date: 2026-07-13
 category: "Trip Reports"
 lang: ko
@@ -125,7 +125,7 @@ ICML 2026 워크숍에는 AI for Science, AI for Mathematics, AI for Physics, Bi
 
 ## 2. 현장에서 눈에 들어왔던 포스터들
 
-포스터를 전부 깊게 살펴보기에는 시간이 제한되어 있었기 때문에, 현재 업무와 개인적인 연구 관심사에 연결되는 논문을 중심으로 확인하였습니다. 아래에서는 15편의 포스터를 논문별로 나열하기보다, 보면서 비슷한 문제의식을 느꼈던 연구끼리 묶어서 소개해 보겠습니다.
+포스터를 전부 깊게 살펴보기에는 시간이 제한되어 있었기 때문에, 현재 업무와 개인적인 연구 관심사에 연결되는 논문을 중심으로 확인하였습니다. 아래에서는 14편의 포스터를 논문별로 나열하기보다, 보면서 비슷한 문제의식을 느꼈던 연구끼리 묶어서 소개해 보겠습니다.
 
 ### 2.1 Reasoning Model을 어떻게 적응시키고, 얼마나 생각하게 할 것인가
 
@@ -376,34 +376,7 @@ LLM을 활용한 평가나 검토 과정에서는 단순한 사용 여부보다 
 
 ---
 
-### 2.5 LLM을 시스템 최적화 도구로 활용하는 연구
-
-#### POLCA: Stochastic Generative Optimization with LLM
-
-**[Paper (arXiv)](https://arxiv.org/pdf/2603.14769)**
-
-![Poster: POLCA](/assets/images/icml-2026-workshop/poster-page36.jpg)
-
-> **한 줄 요약**: LLM이 Prompt, Agent Workflow, Code와 같은 후보 시스템을 생성하고, 실행 결과와 피드백을 바탕으로 반복적으로 개선하는 자동 최적화 Framework입니다.
-
-Prompt나 Agent Workflow를 개선하는 과정은 보통 사람이 여러 후보를 만들고, 실행 결과를 비교한 뒤 다시 수정하는 방식으로 이루어집니다. 하지만 실제 Agent와 생성 시스템은 동일한 설정에서도 결과가 달라질 수 있고, 일부 Sample만 평가하면 Reward에도 Noise가 발생합니다.
-
-POLCA는 이러한 문제를 **Stochastic Generative Optimization**으로 정식화합니다. LLM이 새로운 후보 시스템을 생성하고, 각 후보의 수치 Reward와 Text Feedback을 기록한 뒤, 성능이 좋은 후보를 중심으로 다음 탐색을 진행합니다.
-
-단순히 현재 점수가 가장 높은 후보만 수정하면 우연히 높은 점수를 얻은 후보에 과도하게 의존할 수 있습니다. 이를 방지하기 위해 POLCA는 다음 요소를 사용합니다.
-
-- **Priority Queue**: 성능이 좋은 후보를 활용하면서도 새로운 후보를 계속 탐색합니다.
-- **ε-Net**: 서로 지나치게 비슷한 후보만 쌓이지 않도록 탐색 다양성을 유지합니다.
-- **Local Contextual Aggregation**: 각 후보 주변에서 얻은 여러 평가 이력을 함께 고려합니다.
-- **LLM Summarizer**: 과거 시행착오와 Text Feedback을 요약하여 다음 후보 생성에 활용합니다.
-
-연구진은 확률적인 평가 환경에서도 Near-Optimal Candidate로 수렴할 수 있음을 이론적으로 분석하였고, τ-bench, HotpotQA, VeriBench, KernelBench에서 Agent Prompt, Code Translation, CUDA Kernel 등을 최적화하였습니다.
-
-Agent의 System Prompt나 Tool Workflow를 사람이 반복적으로 수정하는 과정을 **평가 → 피드백 요약 → 후보 생성 → 재평가의 자동 최적화 Loop**로 전환하는 데 참고할 수 있는 연구였습니다.
-
----
-
-### 2.6 학습과 생성 구조 자체를 바꾸려는 연구
+### 2.5 학습과 생성 구조 자체를 바꾸려는 연구
 
 #### AMUSE: Anytime Muon with Stable Gradient Evaluation
 
@@ -447,6 +420,8 @@ Continued Pretraining이나 소형 모델 학습에서 Muon 및 Schedule-Free �
 #### Structured Masked Diffusion for Joint Multiuser Decoding
 
 **[Paper (arXiv)](https://arxiv.org/pdf/2605.26580)**
+
+![Poster: Structured Masked Diffusion for Joint Multiuser Decoding](/assets/images/icml-2026-workshop/poster-page36.jpg)
 
 > **한 줄 요약**: 여러 사용자의 중첩된 무선 신호를 복원하는 문제에 Masked Diffusion과 오류정정부호의 구조적 제약을 결합한 연구입니다.
 
