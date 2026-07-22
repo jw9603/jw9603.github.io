@@ -382,7 +382,7 @@ LLM을 활용한 평가나 검토 과정에서는 단순한 사용 여부보다 
 
 **[Paper (arXiv)](https://arxiv.org/pdf/2603.14769)**
 
-![Poster: POLCA](/assets/images/icml-2026-workshop/poster-page34.jpg)
+![Poster: POLCA](/assets/images/icml-2026-workshop/poster-page36.jpg)
 
 > **한 줄 요약**: LLM이 Prompt, Agent Workflow, Code와 같은 후보 시스템을 생성하고, 실행 결과와 피드백을 바탕으로 반복적으로 개선하는 자동 최적화 Framework입니다.
 
@@ -409,7 +409,7 @@ Agent의 System Prompt나 Tool Workflow를 사람이 반복적으로 수정하�
 
 **[Paper (arXiv)](https://arxiv.org/pdf/2605.22432)**
 
-![Poster: AMUSE](/assets/images/icml-2026-workshop/poster-page36.jpg)
+![Poster: AMUSE](/assets/images/icml-2026-workshop/poster-page34.jpg)
 
 > **한 줄 요약**: Muon의 빠른 학습 특성은 유지하면서, 학습 후반에 발생하는 진동을 줄이기 위해 Gradient를 계산하는 위치를 점진적으로 안정적인 평균 Trajectory 쪽으로 옮기는 Optimizer입니다.
 
