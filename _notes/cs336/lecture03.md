@@ -772,15 +772,11 @@ $$
 로 계산된다. 이를 쓰면,
 
 $$
+\begin{aligned}
 q_{x,i}^\top k_{y,j}
-=
-\left((v_x+PE_i)W_Q\right)^\top
-\left((v_y+PE_j)W_K\right)
-$$
-
-$$
-=
-(v_x+PE_i)^\top W_QW_K^\top(v_y+PE_j)
+&= \left((v_x+PE_i)W_Q\right)^\top \left((v_y+PE_j)W_K\right) \\
+&= (v_x+PE_i)^\top W_QW_K^\top(v_y+PE_j)
+\end{aligned}
 $$
 
 가 된다. 다만 position embedding이 어떤 방식으로 섞이는지 직관적으로 보기 위해, projection matrix $W_Q$, $W_K$를 잠시 생략하면 다음처럼 볼 수 있다.
@@ -935,14 +931,11 @@ $$
 여기서 $R_i$와 $R_j$는 위치에 따라 달라지는 회전 행렬이다. attention score는 다음과 같이 계산된다.
 
 $$
+\begin{aligned}
 \tilde{q}_i^\top \tilde{k}_j
-=
-(R_iq_i)^\top(R_jk_j)
-$$
-
-$$
-=
-q_i^\top R_i^\top R_j k_j
+&= (R_iq_i)^\top(R_jk_j) \\
+&= q_i^\top R_i^\top R_j k_j
+\end{aligned}
 $$
 
 회전 행렬의 성질에 의해 $R_i^\top R_j$는 두 위치의 차이에 해당하는 회전이 된다.
