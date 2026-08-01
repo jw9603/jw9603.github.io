@@ -2204,19 +2204,93 @@ $$
 \text{Total memory accesses}\approx bn^2d+nd^2
 $$
 
-슬라이드 위에는 첫 번째 항에 $K,V$, 두 번째 항에 projection이라고 표시되어 있다. 즉 두 항의 의미는 다음과 같다.
+슬라이드 위에는 첫 번째 항에 $K,V$, 두 번째 항에 projection이라고 표시되어 있다. 핵심은 **decode를 $n$번 반복하면서 발생하는 메모리 접근을 누적한 결과**다. 두 항은 서로 다른 데이터를 읽는 비용이므로, 아래에서 각각 유도해 본다.
+
+**1) KV cache 읽기: $bn^2d$**
+
+Autoregressive decoding에서는 한 번에 token 하나씩 생성한다. 현재 decode step을 $t$라고 하면, 현재 query는 이전 $t$개 token의 key와 value를 모두 읽어야 한다. KV cache의 크기를 단순화하면 다음과 같다.
 
 $$
-bn^2d
+K,V \in \mathbb{R}^{b\times t\times d}
 $$
 
-이 항은 decoding 중 KV cache를 반복적으로 읽는 비용을 나타낸다. decode step이 진행될수록 현재 token은 이전 token 전체의 key/value를 attend해야 한다. 첫 step에서는 짧은 cache를 읽지만, 뒤로 갈수록 긴 cache를 읽는다. 전체 $n$ step에 대해 누적하면 대략 $n^2$ 구조가 생긴다.
+따라서 $t$번째 step에서 읽는 KV cache의 양은 대략 $O(btd)$이다. 여기서:
+
+- $b$: batch size
+- $t$: 현재까지 누적된 sequence length
+- $d$: key/value hidden dimension
+
+decoding을 총 $n$ step 수행하므로 모두 더하면 다음과 같다.
 
 $$
-nd^2
+\sum_{t=1}^{n} btd
+= bd\sum_{t=1}^{n} t
+= bd\cdot \frac{n(n+1)}{2}
+\approx \frac{1}{2}bn^2d
 $$
 
-이 항은 projection weight를 읽는 비용이다. 각 token step마다 Q/K/V projection과 output projection에 필요한 weight를 읽고 연산해야 하므로, 전체적으로 $n$번 반복된다.
+상수 $1/2$을 무시하면 $O(bn^2d)$가 된다. 직관적인 예로 총 4개 token을 생성한다고 하자.
+
+- 1번째 step: KV 1개 읽기
+- 2번째 step: KV 2개 읽기
+- 3번째 step: KV 3개 읽기
+- 4번째 step: KV 4개 읽기
+
+총 읽는 token 수는 $1+2+3+4=10$이고, 일반적으로 $1+2+\cdots+n=\frac{n(n+1)}{2}\approx O(n^2)$이므로 $n^2$ 구조가 생기는 것이다.
+
+> $K$와 $V$를 모두 읽으면 실제로는 약 $2btd$이지만, 복잡도 표기에서는 상수 2를 생략한다.
+
+**2) Projection weight 읽기: $nd^2$**
+
+Transformer의 projection은 대략 다음과 같은 행렬곱이다.
+
+$$
+xW,\qquad x\in\mathbb{R}^{b\times d},\quad W\in\mathbb{R}^{d\times d}
+$$
+
+Projection weight $W$의 크기는 $d\times d = d^2$이다. Decode 한 step마다 이 weight matrix를 HBM에서 읽는다고 보면 메모리 접근량은 $O(d^2)$, 총 $n$ step을 수행하므로 $\sum_{t=1}^{n} d^2 = nd^2$가 된다.
+
+**3) 왜 projection 항에는 $b$가 없나?**
+
+중요한 부분이다. Batch가 $b$개라도 **같은 projection weight $W$를 모든 batch element가 공유**한다.
+
+$$
+XW,\qquad X\in\mathbb{R}^{b\times d}
+$$
+
+GPU는 이상적으로 $W$를 한 번 읽은 다음 batch의 여러 입력에 재사용한다. 따라서 weight memory traffic은 $d^2$이지 $bd^2$가 아니다. 물론 계산량은 batch마다 행렬곱을 해야 하므로 $O(bd^2)$이다. 즉 projection에서:
+
+- Compute per step $\approx bd^2$
+- Weight memory access per step $\approx d^2$
+
+총 $n$ step 동안:
+
+- compute $\approx bnd^2$
+- weight memory access $\approx nd^2$
+
+이 차이가 **decode에서 batch를 늘리면 arithmetic intensity가 증가하는 이유**이기도 하다. 같은 weight를 한 번 읽고 $b$개의 token 계산에 재사용하기 때문이다.
+
+**4) activation 읽기·쓰기는 어디 갔나?**
+
+Projection에서는 입력과 출력 activation도 읽고 써야 한다. 한 step에서 activation traffic은 대략 $O(bd)$, 총 $n$ step이면 $O(bnd)$이다. 보다 완전하게 쓰면 다음과 같다.
+
+$$
+O(bn^2d + nd^2 + bnd)
+$$
+
+하지만 일반적으로 $d$와 $n$이 크면 $bnd$는 다른 두 항보다 작으므로 생략한다. $bn^2d + nd^2$는 지배적인 항만 남긴 표현이다.
+
+**5) 어떤 항이 더 큰가?**
+
+두 항의 크기를 비교하면 $bn^2d$ vs $nd^2$이다. 공통항 $nd$로 나누면 $bn$ vs $d$가 된다. 따라서:
+
+- $bn < d$: projection weight 읽기가 더 큼
+- $bn > d$: KV cache 읽기가 더 큼
+
+경계는 $bn \approx d$이다. 예를 들어 $d=4096$, $b=1$이면 sequence length가 약 4096보다 짧을 때는 projection weight traffic이 더 크고, 그보다 매우 길어지면 KV cache traffic이 점점 중요해진다. 정리하면:
+
+- $bn^2d$: 길어지는 KV cache를 매 step 반복해서 읽는 비용
+- $nd^2$: 크기 $d^2$인 projection weight를 $n$번 읽는 비용
 
 이제 arithmetic intensity는 다음처럼 계산된다.
 
