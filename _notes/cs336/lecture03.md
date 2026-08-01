@@ -2334,7 +2334,7 @@ $$
 
 ![Page 61](../images/lecture03/page_61.jpg)
 
-이 페이지는 **MQA(Multi-Query Attention)의 핵심 아이디어를 설명한다. 슬라이드 제목은 “just have fewer key dimensions”이고, 본문에는 “multiple queries, but just one dimension for keys and values”라고 되어 있다. 표현을 조금 더 정확히 하면, query head는 여러 개 유지하지만 key/value head는 하나만 두고 모든 query head가 이를 공유한다는 뜻이다.
+이 페이지는 **MQA(Multi-Query Attention)**의 핵심 아이디어를 설명한다. 슬라이드 제목은 “just have fewer key dimensions”이고, 본문에는 “multiple queries, but just one dimension for keys and values”라고 되어 있다. 표현을 조금 더 정확히 하면, query head는 여러 개 유지하지만 key/value head는 하나만 두고 모든 query head가 이를 공유한다는 뜻이다.
 
 일반 MHA에서는 head마다 query, key, value가 모두 따로 있다.
 
@@ -2426,7 +2426,7 @@ $$
 
 ![Page 62](../images/lecture03/page_62.jpg)
 
-이 페이지는 MQA의 더 실용적인 확장인 **GQA(Grouped-Query Attention)를 설명한다. 슬라이드의 첫 문장은 “KV를 완전히 하나로 줄이지 말고, 더 적은 수의 K/V dimension을 갖자”는 것이다. 즉 MQA처럼 모든 query head가 하나의 K/V를 공유하는 극단으로 가지 않고, 여러 query head를 몇 개의 group으로 나누어 group마다 K/V를 공유하게 만든다.
+이 페이지는 MQA의 더 실용적인 확장인 **GQA(Grouped-Query Attention)**를 설명한다. 슬라이드의 첫 문장은 “KV를 완전히 하나로 줄이지 말고, 더 적은 수의 K/V dimension을 갖자”는 것이다. 즉 MQA처럼 모든 query head가 하나의 K/V를 공유하는 극단으로 가지 않고, 여러 query head를 몇 개의 group으로 나누어 group마다 K/V를 공유하게 만든다.
 
 슬라이드 중앙 그림은 세 구조를 나란히 비교한다.
 
@@ -2474,7 +2474,7 @@ $$
 
 슬라이드 하단의 문장처럼 GQA는 **expressiveness와 inference efficiency를 조절하는 간단한 knob**이다. $h_{kv}$를 줄이면 decoding 속도와 memory efficiency는 좋아지지만 표현력이 줄 수 있다. $h_{kv}$를 늘리면 MHA에 가까워져 표현력은 좋아지지만 KV cache 비용이 커진다.
 
-슬라이드는 마지막에 DeepSeek V2의 **MLA(Multihead Latent Attention)도 언급한다. MLA는 단순히 K/V head 수를 줄이는 것보다 더 나아가, key/value 정보를 latent representation으로 압축해 KV cache를 더 효율적으로 다루려는 방법이다. 따라서 Page 62의 흐름은 MHA → MQA → GQA → MLA로 이어지는 “KV cache를 줄이기 위한 설계 공간”을 보여준다고 볼 수 있다.
+슬라이드는 마지막에 DeepSeek V2의 **MLA(Multihead Latent Attention)**도 언급한다. MLA는 단순히 K/V head 수를 줄이는 것보다 더 나아가, key/value 정보를 latent representation으로 압축해 KV cache를 더 효율적으로 다루려는 방법이다. 따라서 Page 62의 흐름은 MHA → MQA → GQA → MLA로 이어지는 “KV cache를 줄이기 위한 설계 공간”을 보여준다고 볼 수 있다.
 
 ---
 
