@@ -136,7 +136,7 @@ LLaMA-like라는 말은 단순히 LLaMA 모델을 복제했다는 뜻이 아니�
 
 ## Page 10. Pre-vs-post norm
 
-![Page 10|717](../images/lecture03/page_10.jpg)
+![Page 10](../images/lecture03/page_10.jpg)
 
 이 페이지는 현대 LLM에서 거의 합의가 된 선택 중 하나인 pre-norm을 설명한다. post-norm은 sublayer 출력과 residual을 더한 뒤 정규화하는 방식이고, pre-norm은 sublayer에 들어가기 전에 정규화하는 방식이다.
 
