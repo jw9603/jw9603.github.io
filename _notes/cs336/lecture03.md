@@ -766,52 +766,52 @@ k_{y,j}=(v_y+PE_j)W_K
 $$
 
 $$
-\operatorname{score}(i,j)=q_{x,i}^\top k_{y,j}
+\operatorname{score}(i,j)=q_{x,i} k_{y,j}^\top
 $$
 
-로 계산된다. 이를 쓰면,
+로 계산된다. 여기서 $v_x$, $PE_i$는 모두 행 벡터(row vector, $\mathbb{R}^{1\times d}$)이므로 $q_{x,i}=(v_x+PE_i)W_Q$도 행 벡터이고, 스칼라 dot product는 $q k^\top$ 형태로 쓴다. 이를 쓰면,
 
 $$
 \begin{aligned}
-q_{x,i}^\top k_{y,j}
-&= \left((v_x+PE_i)W_Q\right)^\top \left((v_y+PE_j)W_K\right) \\
-&= (v_x+PE_i)^\top W_QW_K^\top(v_y+PE_j)
+q_{x,i} k_{y,j}^\top
+&= \left((v_x+PE_i)W_Q\right) \left((v_y+PE_j)W_K\right)^\top \\
+&= (v_x+PE_i) W_Q W_K^\top (v_y+PE_j)^\top
 \end{aligned}
 $$
 
 가 된다. 다만 position embedding이 어떤 방식으로 섞이는지 직관적으로 보기 위해, projection matrix $W_Q$, $W_K$를 잠시 생략하면 다음처럼 볼 수 있다.
 
 $$
-(v_x+PE_i)^\top(v_y+PE_j)
+(v_x+PE_i)(v_y+PE_j)^\top
 =
-v_x^\top v_y
-+v_x^\top PE_j
-+PE_i^\top v_y
-+PE_i^\top PE_j
+v_x v_y^\top
++v_x PE_j^\top
++PE_i v_y^\top
++PE_i PE_j^\top
 $$
 
 각 항의 의미는 다음과 같다.
 
 $$
-v_x^\top v_y
+v_x v_y^\top
 $$
 
 은 token content끼리의 유사도다. 즉 token $x$와 token $y$가 의미적으로 얼마나 관련 있는지에 해당한다.
 
 $$
-v_x^\top PE_j
+v_x PE_j^\top
 $$
 
 은 token $x$의 내용과 key 위치 $j$의 절대 위치 정보가 섞인 항이다.
 
 $$
-PE_i^\top v_y
+PE_i v_y^\top
 $$
 
 은 query 위치 $i$의 절대 위치 정보와 token $y$의 내용이 섞인 항이다.
 
 $$
-PE_i^\top PE_j
+PE_i PE_j^\top
 $$
 
 은 position $i$와 position $j$ 사이의 위치 벡터끼리의 상호작용이다.
@@ -1085,13 +1085,13 @@ $$
 
 $$
 \begin{aligned}
-\operatorname{Embed}(x,i)^\top \operatorname{Embed}(y,j)
-&= (v_x+PE_i)^\top (v_y+PE_j) \\
-&= v_x^\top v_y + v_x^\top PE_j + PE_i^\top v_y + PE_i^\top PE_j.
+\operatorname{Embed}(x,i)\,\operatorname{Embed}(y,j)^\top
+&= (v_x+PE_i)(v_y+PE_j)^\top \\
+&= v_x v_y^\top + v_x PE_j^\top + PE_i v_y^\top + PE_i PE_j^\top.
 \end{aligned}
 $$
 
-여기서 문제는 $v_x^\top PE_j$와 $PE_i^\top v_y$ 같은 **cross term**이다. token의 의미 표현과 상대 token의 절대 위치가 섞인다. 즉 score가 단순히 $i-j$의 함수로만 정리되지 않는다. 슬라이드의 “Sine: Has various cross-terms that are not relative”라는 문장은 바로 이 점을 말한다.
+여기서 문제는 $v_x PE_j^\top$와 $PE_i v_y^\top$ 같은 **cross term**이다. token의 의미 표현과 상대 token의 절대 위치가 섞인다. 즉 score가 단순히 $i-j$의 함수로만 정리되지 않는다. 슬라이드의 “Sine: Has various cross-terms that are not relative”라는 문장은 바로 이 점을 말한다.
 
 둘째, learned absolute embedding은 더 직접적으로 절대 위치 vector $u_i$를 더한다.
 
