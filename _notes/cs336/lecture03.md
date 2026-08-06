@@ -1109,7 +1109,7 @@ $$
 
 이 방식은 상대 위치를 쓰기 때문에 유용하지만, 슬라이드가 강조하듯이 “is not an inner product”라는 특징이 있다. 즉 query와 key를 각각 어떤 위치 의존 표현으로 바꾼 다음 그 둘의 순수 내적으로 attention score를 얻는 형태가 아니다. RoPE는 여기서 한 걸음 더 나아가, **query/key 자체를 위치에 따라 변환하되, 그 내적이 상대 위치만 보게 만드는 방식**을 찾는다.
 
-따라서 이 페이지의 역할은 RoPE를 도입하기 위한 문제 정의다. 기존 additive positional embedding은 cross term 때문에 완전한 상대 위치 구조를 만들기 어렵고, relative bias는 효과적이지만 attention의 query-key 내적 구조와는 조금 다르다. RoPE는 이 둘 사이에서, attention의 핵심 연산인 inner product를 유지하면서 relative position을 자연스럽게 넣는 방법으로 등장한다.
+따라서 이 페이지의 역할은 RoPE를 도입하기 위한 문제 정의다. 기존 additive positional embedding은 cross term 때문에 완전한 상대 위치 구조를 만들기 어렵고, relative position embedding은 효과적이지만 attention의 query-key 내적 구조와는 조금 다르다. RoPE는 이 둘 사이에서, attention의 핵심 연산인 inner product를 유지하면서 relative position을 자연스럽게 넣는 방법으로 등장한다.
 
 ---
 
