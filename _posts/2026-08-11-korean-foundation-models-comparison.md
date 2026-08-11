@@ -7,9 +7,9 @@ category: "Reading Notes"
 lang: ko
 ---
 
-2026년 8월 11일을 기준으로 국내 파운데이션 모델 프로젝트의 4개 주요 모델이 모두 공개됐다. 네 팀 모두 **대규모 sparse Mixture-of-Experts(MoE)** 라는 큰 방향을 공유하지만, 실제 Technical Report를 열어보면 모델을 키우는 방식, attention 설계, long-context 접근, post-training, serving 최적화, 라이선스 전략에서 꽤 다른 선택이 눈에 띈다.
+2026년 8월 11일을 기준으로 국내 파운데이션 모델 프로젝트의 4개 주요 모델이 모두 공개됐습니다. 네 팀 모두 **대규모 sparse Mixture-of-Experts(MoE)** 라는 큰 방향을 공유하지만, 실제 Technical Report를 열어보면 모델을 키우는 방식, attention 설계, long-context 접근, post-training, serving 최적화, 라이선스 전략에서 꽤 다른 선택이 눈에 띕니다.
 
-이번 글은 네 모델의 Technical Report를 훑으며 정리한 노트다. 각 모델의 핵심 기술적 특징을 요약하고, 공개된 benchmark를 최대한 공정하게 비교한 뒤, 마지막에 개인적인 감상과 References를 붙였다.
+이번 글은 네 모델의 Technical Report를 훑으며 정리한 노트입니다. 각 모델의 핵심 기술적 특징을 요약하고, 공개된 benchmark를 최대한 공정하게 비교한 뒤, 마지막에 개인적인 감상과 References를 붙였습니다.
 
 > **평가 해석 시 주의사항**
 > 네 모델의 Technical Report 점수는 하나의 통일된 evaluation harness에서 측정된 결과가 아닙니다.
@@ -773,10 +773,10 @@ LG와 SKT는 비교적 안정적인 backbone 위에서 scaling, low-precision, s
 
 **Technical Reports**
 
-- LG AI Research — *K-EXAONE 2.0* Technical Report
-- SK Telecom — *A.X K2* Technical Report
-- Upstage — *Solar Open 2* Technical Report
-- Motif Technologies — *Motif 3* Technical Report
+- [LG AI Research — *K-EXAONE 2.0* Technical Report (arXiv:2608.04505)](https://arxiv.org/abs/2608.04505)
+- [SK Telecom — *A.X K2* Technical Report (GitHub)](https://github.com/SKT-AI/A.X-K2/blob/main/A_X_K2_Tech_Report.pdf)
+- [Upstage — *Solar Open 2* Technical Report (arXiv:2607.20062)](https://arxiv.org/abs/2607.20062)
+- [Motif Technologies — *Motif 3* Technical Report (arXiv:2608.09119)](https://arxiv.org/abs/2608.09119)
 
 **Evaluation & Benchmarks**
 
@@ -786,5 +786,3 @@ LG와 SKT는 비교적 안정적인 backbone 위에서 scaling, low-precision, s
 - IFBench — Instruction Following Bench
 - AA-LCR — Artificial Analysis Long Context Reasoning
 - SciCode — Scientific coding benchmark
-
-> Technical Report의 정식 URL·arXiv 링크는 각 개발사 공식 배포처를 참조.
