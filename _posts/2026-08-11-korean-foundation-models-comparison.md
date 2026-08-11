@@ -3,7 +3,7 @@ layout: post
 title: "대한민국 독자 AI 파운데이션 모델 4종 비교 — K-EXAONE 2.0 / A.X K2 / Solar Open 2 / Motif 3"
 description: "LG AI Research, SK Telecom, Upstage, Motif Technologies가 각각 공개한 파운데이션 모델의 Technical Report를 architecture / pretraining / post-training / serving / license 관점에서 비교한 정리 노트. 벤치마크 점수는 서로 다른 evaluation harness 결과를 nominal-level로 정렬한 cross-report 비교이므로 소수점 단위 순위 해석은 주의가 필요하다."
 date: 2026-08-11
-category: "Reading Notes"
+category: "Paper Review"
 lang: ko
 ---
 
