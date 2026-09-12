@@ -28,7 +28,7 @@
     }
   ],
   "url": "{{ '/' | absolute_url }}",
-  "image": "{{ '/profile.jpeg' | absolute_url }}",
+  "image": "{{ '/new_profile.png' | absolute_url }}",
   "email": "jwjw9603@gmail.com",
   "sameAs": [
     "https://github.com/jw9603",
@@ -68,7 +68,7 @@
   },
   {% if page.date %}"datePublished": "{{ page.date | date_to_xmlschema }}",
   "dateModified": "{{ page.date | date_to_xmlschema }}",
-  {% endif %}"image": "{{ '/profile.jpeg' | absolute_url }}",
+  {% endif %}"image": "{{ '/new_profile.png' | absolute_url }}",
   "url": "{{ page.url | absolute_url }}",
   "mainEntityOfPage": "{{ page.url | absolute_url }}",
   "inLanguage": {{ page.lang | default: site.lang | default: 'en' | jsonify }}{% if page.category %},
