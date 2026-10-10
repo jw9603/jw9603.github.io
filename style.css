@@ -201,6 +201,45 @@ a:hover {
   min-width: 75px;
 }
 
+.news-more > summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 0 12px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--link);
+  cursor: pointer;
+  user-select: none;
+}
+
+.news-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.news-more > summary:hover {
+  color: var(--link-hover);
+}
+
+.news-more > summary .fa {
+  font-size: 1.1rem;
+  transition: transform .2s ease;
+}
+
+.news-more[open] > summary .fa {
+  transform: rotate(180deg);
+}
+
+.news-more .when-open,
+.news-more[open] .when-closed {
+  display: none;
+}
+
+.news-more[open] .when-open {
+  display: inline;
+}
+
 /* ===== Papers / Entries ===== */
 .paper {
   margin-bottom: 20px;
